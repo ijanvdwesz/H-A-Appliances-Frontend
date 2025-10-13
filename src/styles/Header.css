@@ -1,0 +1,242 @@
+/* Header */
+.header {
+  background-color: #0f172a;
+  color: #e0f7ff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+}
+
+/* Top section: logo, search, cart */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Logo + title block */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.03);
+}
+
+.logo,
+.title-image {
+  height: 65px;
+  object-fit: contain;
+  animation: glowPulse 3s infinite ease-in-out;
+  z-index: 1;
+}
+
+.logo {
+  border-radius: 8px;
+}
+
+.title-image {
+  margin-left: -4px;
+}
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 8px #3b82f6); }
+  33% { filter: drop-shadow(0 0 15px #06b6d4); }
+  66% { filter: drop-shadow(0 0 20px #f0f9ff); }
+  100% { filter: drop-shadow(0 0 8px #3b82f6); }
+}
+
+.logo-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(62, 219, 255, 0) 0%,
+    rgba(62, 219, 255, 0.6) 50%,
+    rgba(62, 219, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shimmer 2.5s infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes shimmer {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* Search section */
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  padding: 0.6rem 0.5rem;
+  border-radius: 9999px;
+  border: none;
+  width: 50%;
+  max-width: 500px;
+  color: #0f172a;
+  font-size: 1rem;
+  box-shadow: 0 0 8px #38bdf8 inset;
+  box-sizing: border-box;
+}
+
+.search-button {
+  margin-left: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.search-button:hover {
+  background-color: #0ea5e9;
+  color: #f0f9ff;
+  box-shadow: 0 0 15px #0ea5e9;
+}
+
+/* Filters */
+.filters-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin: 0.5rem 1.5rem 0 1.5rem;
+  width: calc(100% - 3rem);
+}
+
+.category-dropdown,
+.price-input,
+.filters-container .search-button {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.85rem;
+  background: #1e293b;
+  color: #e0f7ff;
+  box-shadow: 0 0 6px #38bdf8 inset;
+}
+
+/* Cart icon */
+.cart-icon-container {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cart-icon {
+  font-size: 28px;
+  color: #38bdf8;
+  transition: color 0.3s ease;
+  text-shadow: 0 0 8px #38bdf8;
+}
+
+.cart-icon:hover {
+  color: #0ea5e9;
+  text-shadow: 0 0 12px #0ea5e9;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #dc2626;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .logo-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+
+  .logo,
+  .title-image {
+    height: 60px;
+  }
+
+  .search-container,
+  .filters-container {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 0.5rem;
+  }
+
+  .search-bar,
+  .search-button,
+  .category-dropdown,
+  .price-input {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .search-button {
+    margin-left: 0;
+  }
+
+  .filters-container {
+    gap: 0.4rem;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .logo,
+  .title-image {
+    height: 50px;
+  }
+
+  .search-bar,
+  .search-button,
+  .category-dropdown,
+  .price-input {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.4rem;
+  }
+
+  .filters-container {
+    gap: 0.3rem;
+    margin: 0.4rem 0.4rem 0 0.4rem;
+  }
+}

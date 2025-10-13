@@ -1,0 +1,43 @@
+.homepage-store-preview {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgb(225, 255, 255), #1e293b);
+  color: #e0f7ff;
+  font-family: "Orbitron", sans-serif;
+}
+
+.homepage-store-preview h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #38bdf8;
+  text-shadow: 0 0 8px #38bdf8;
+}
+
+/* Grid for preview products */
+.homepage-store-preview .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+/* View All Products button */
+.view-store-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #38bdf8;
+  transition: all 0.3s ease;
+}
+
+.view-store-button:hover {
+  background-color: #0ea5e9;
+  color: #f0f9ff;
+  box-shadow: 0 0 15px #0ea5e9;
+}

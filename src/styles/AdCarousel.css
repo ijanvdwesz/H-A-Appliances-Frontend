@@ -1,0 +1,38 @@
+.ad-carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+  background: linear-gradient(to right, #e6f7ff, #ffffff);
+  border-top: 2px solid #bae6fd;
+  border-bottom: 2px solid #bae6fd;
+}
+
+.ad-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.ad-item {
+  flex: 0 0 calc(33.333% - 1rem); /* 3 per view */
+  max-width: calc(33.333% - 1rem);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ad-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.25);
+}
+
+.ad-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}

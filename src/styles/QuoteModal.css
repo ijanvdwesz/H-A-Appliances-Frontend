@@ -1,0 +1,98 @@
+/* Modal overlay with backdrop blur */
+.quote-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 30, 60, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Modal content */
+.quote-modal-content {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close button */
+.quote-modal-close {
+  position: sticky;
+  top: 0;
+  right: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0369a1;
+  padding: 10px 15px;
+  transition: color 0.2s ease, transform 0.1s ease;
+  z-index: 10;
+}
+
+.quote-modal-close:hover {
+  color: #0284c7;
+  transform: scale(1.1);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling */
+.quote-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.quote-modal-content::-webkit-scrollbar-thumb {
+  background-color: rgba(3, 105, 161, 0.4);
+  border-radius: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .quote-modal-content {
+    max-width: 85%;
+    padding: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-modal-content {
+    max-width: 90%;
+    padding: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-modal-content {
+    width: 95%;
+    max-height: 95vh;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .quote-modal-close {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+}

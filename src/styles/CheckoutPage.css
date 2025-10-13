@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+/* ===== Base Page ===== */
+.checkout-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: radial-gradient(circle at top, #1e293b 10%, #0f172a 80%);
+  color: #e0f7ff;
+  font-family: "Orbitron", sans-serif;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+/* ===== Stage Tracker Section ===== */
+.stage-tracker {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.stage-tracker::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  width: 90%;
+  height: 4px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.stage-step {
+  background: #0f172a;
+  border: 2px solid #38bdf8;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #38bdf8;
+  text-shadow: 0 0 8px #38bdf8;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.stage-step.active {
+  background: #38bdf8;
+  color: #0f172a;
+  box-shadow: 0 0 20px #38bdf8;
+  transform: scale(1.15);
+}
+
+/* ===== Page Sections ===== */
+.delivery-form,
+.payment-section,
+.confirmation {
+  width: 100%;
+  max-width: 500px;
+  background: #1e293b;
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.4);
+  text-align: center;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* ===== Section Titles ===== */
+.delivery-form h2,
+.payment-section h2,
+.confirmation h2 {
+  color: #38bdf8;
+  text-shadow: 0 0 10px #38bdf8;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+/* ===== Inputs ===== */
+.delivery-form input,
+.delivery-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #0f172a;
+  color: #e0f7ff;
+  box-shadow: inset 0 0 6px #38bdf8;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.delivery-form input:focus,
+.delivery-form textarea:focus {
+  box-shadow: 0 0 12px #0ea5e9 inset;
+  outline: none;
+}
+
+/* ===== Buttons ===== */
+button {
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #38bdf8;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background: #0ea5e9;
+  color: #f0f9ff;
+  box-shadow: 0 0 20px #0ea5e9;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== Delivery Truck Animation ===== */
+.truck-animation {
+  margin: 2rem auto;
+  width: 160px;
+  height: 80px;
+  position: relative;
+}
+
+.truck-body {
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  border-radius: 8px;
+  position: relative;
+  animation: truckMove 3s infinite ease-in-out;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.truck-wheel {
+  width: 30px;
+  height: 30px;
+  background: #0f172a;
+  border: 3px solid #38bdf8;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10px;
+  animation: spin 1.2s linear infinite;
+}
+
+.truck-wheel.left { left: 20px; }
+.truck-wheel.right { right: 20px; }
+
+@keyframes truckMove {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Confirmation ===== */
+.confirmation {
+  background: radial-gradient(circle at center, #1e293b 40%, #0f172a 90%);
+  box-shadow: 0 0 25px #38bdf8;
+}
+
+.confirmation h2 {
+  font-size: 2rem;
+}
+
+.confirmation p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #bae6fd;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .checkout-page {
+    padding: 1rem;
+  }
+  .delivery-form,
+  .payment-section,
+  .confirmation {
+    padding: 1.2rem;
+  }
+  .stage-step {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+}
