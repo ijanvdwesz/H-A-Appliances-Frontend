@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import "../styles/CheckoutPage.css";
+import BASE_URL from "../config";
 
 function CheckoutPage() {
   const { cart, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const [stage, setStage] = useState(1); // 1=Delivery, 2=Payment, 3=Confirm
+  const [stage, setStage] = useState(1);
   const [delivery, setDelivery] = useState({
     name: "",
     email: "",
@@ -32,7 +33,7 @@ function CheckoutPage() {
 
   const sendConfirmationEmail = async () => {
     try {
-      await fetch("/api/send-confirmation", {
+      await fetch(`${BASE_URL}/api/send-confirmation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -88,15 +89,11 @@ function CheckoutPage() {
                 {item.name} x{item.quantity} - R{(item.price * item.quantity).toFixed(2)}
               </p>
             ))}
-            <p>
-              <strong>Total: R{total.toFixed(2)}</strong>
-            </p>
+            <p><strong>Total: R{total.toFixed(2)}</strong></p>
           </div>
 
           <button
-            disabled={
-              !delivery.name || !delivery.email || !delivery.phone || !delivery.address
-            }
+            disabled={!delivery.name || !delivery.email || !delivery.phone || !delivery.address}
             onClick={() => setStage(2)}
           >
             Proceed to Payment

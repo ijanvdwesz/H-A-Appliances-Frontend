@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/HomePage.css";
+import BASE_URL from "../config";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
@@ -14,8 +15,8 @@ function HomePage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("/api/products");
-        setProducts(data.slice(0, 12)); // show 12 products as preview
+        const { data } = await axios.get(`${BASE_URL}/api/products`);
+        setProducts(data.slice(0, 12));
       } catch (err) {
         console.error("Error fetching products:", err);
       }
@@ -24,7 +25,7 @@ function HomePage() {
   }, []);
 
   const handleViewStore = () => navigate("/store");
-  const handleViewServices = () => navigate("/services"); // 👈 new handler
+  const handleViewServices = () => navigate("/services");
 
   return (
     <>
@@ -38,7 +39,6 @@ function HomePage() {
         ]}
       />
 
-      {/* 👇 Make carousel clickable */}
       <div onClick={handleViewServices} style={{ cursor: "pointer" }}>
         <AdCarousel />
       </div>

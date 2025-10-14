@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 import axios from "axios";
+import BASE_URL from "../config"; // ✅ import base URL
 import "../styles/StorePage.css";
 import { useLocation } from "react-router-dom";
 
@@ -14,7 +15,6 @@ function StorePage() {
   const [maxPrice, setMaxPrice] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
-
   const location = useLocation();
 
   const categories = [
@@ -25,7 +25,6 @@ function StorePage() {
     "Sensors", "Brackets", "Universal PC Board", "Universal Remote", "Condensation pump"
   ];
 
-  // Read query parameters from URL and set state
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     setSearchTerm(params.get("q") || "");
@@ -34,11 +33,10 @@ function StorePage() {
     setMaxPrice(params.get("maxPrice") || "");
   }, [location.search]);
 
-  // Fetch products from backend
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("/api/products");
+        const { data } = await axios.get(`${BASE_URL}/api/products`);
         setProducts(data);
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -47,33 +45,28 @@ function StorePage() {
     fetchProducts();
   }, []);
 
-  // Apply filters whenever products or filter state changes
   useEffect(() => {
     let filtered = products;
 
-    // Category filter
     if (selectedCategory) {
       filtered = filtered.filter(
-        p => (p.category || "").toLowerCase() === selectedCategory.toLowerCase()
+        (p) => (p.category || "").toLowerCase() === selectedCategory.toLowerCase()
       );
     }
 
-    // Search filter
     if (searchTerm) {
       filtered = filtered.filter(
-        p => (p.title || p.name || "").toLowerCase().includes(searchTerm.toLowerCase())
+        (p) => (p.title || p.name || "").toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
-    // Price filter
-    if (minPrice) filtered = filtered.filter(p => p.price >= parseFloat(minPrice));
-    if (maxPrice) filtered = filtered.filter(p => p.price <= parseFloat(maxPrice));
+    if (minPrice) filtered = filtered.filter((p) => p.price >= parseFloat(minPrice));
+    if (maxPrice) filtered = filtered.filter((p) => p.price <= parseFloat(maxPrice));
 
     setFilteredProducts(filtered);
     setCurrentPage(1);
   }, [products, selectedCategory, searchTerm, minPrice, maxPrice]);
 
-  // Pagination
   const indexOfLast = currentPage * productsPerPage;
   const indexOfFirst = indexOfLast - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirst, indexOfLast);
@@ -103,7 +96,7 @@ function StorePage() {
         {totalPages > 1 && (
           <div className="pagination">
             <button
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
             >
               Prev
@@ -112,7 +105,7 @@ function StorePage() {
               Page {currentPage} of {totalPages}
             </span>
             <button
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
             >
               Next

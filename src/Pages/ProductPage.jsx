@@ -4,6 +4,7 @@ import { CartContext } from "../context/CartContext";
 import ProductCard from "../components/ProductCard";
 import Header from "../components/Header";
 import axios from "axios";
+import BASE_URL from "../config"; // ✅ import base URL
 import "../styles/ProductPage.css";
 
 function ProductPage() {
@@ -14,11 +15,10 @@ function ProductPage() {
   const [added, setAdded] = useState(false);
   const navigate = useNavigate();
 
-  // Fetch all products
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("/api/products");
+        const { data } = await axios.get(`${BASE_URL}/api/products`);
         setProducts(data);
 
         const selected = data.find((p) => p._id === id);
@@ -38,9 +38,7 @@ function ProductPage() {
     setTimeout(() => setAdded(false), 2000);
   };
 
-  const suggested = products
-    .filter((p) => p._id !== product._id)
-    .slice(0, 3);
+  const suggested = products.filter((p) => p._id !== product._id).slice(0, 3);
 
   return (
     <>

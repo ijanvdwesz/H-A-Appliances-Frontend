@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/QuoteForm.css";
+import BASE_URL from "../config";
 
 function QuoteForm({ prefillService, onSuccess }) {
   const [step, setStep] = useState(1);
@@ -21,13 +22,9 @@ function QuoteForm({ prefillService, onSuccess }) {
     location: "",
   });
 
-  // ✅ Pre-fill selected service
   useEffect(() => {
     if (prefillService) {
-      setForm((prev) => ({
-        ...prev,
-        services: [prefillService],
-      }));
+      setForm((prev) => ({ ...prev, services: [prefillService] }));
     }
   }, [prefillService]);
 
@@ -45,7 +42,6 @@ function QuoteForm({ prefillService, onSuccess }) {
     }
   };
 
-  // ✅ Submit & close modal on success
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formEl = e.target;
@@ -55,9 +51,9 @@ function QuoteForm({ prefillService, onSuccess }) {
     }
 
     try {
-      await axios.post("/api/quote", form); // sends to DB + triggers mail
+      await axios.post(`${BASE_URL}/api/quote`, form);
       alert("Quote request submitted! ColdCompany will email you back.");
-      if (onSuccess) onSuccess(); // ✅ close modal
+      if (onSuccess) onSuccess();
     } catch (err) {
       console.error("Error submitting quote:", err);
       alert("Error submitting form. Please try again.");
@@ -89,9 +85,7 @@ function QuoteForm({ prefillService, onSuccess }) {
             )
           )}
           <div className="quote-form-navigation">
-            <button type="button" onClick={nextStep}>
-              Next
-            </button>
+            <button type="button" onClick={nextStep}>Next</button>
           </div>
         </div>
 
@@ -101,136 +95,55 @@ function QuoteForm({ prefillService, onSuccess }) {
             form.services.includes("Mobile Unit")) && (
             <>
               <h3>Cold Room / Mobile Details</h3>
-              <input
-                type="number"
-                name="length"
-                placeholder="Length (m)"
-                value={form.length}
-                onChange={handleChange}
-              />
-              <input
-                type="number"
-                name="width"
-                placeholder="Width (m)"
-                value={form.width}
-                onChange={handleChange}
-              />
-              <input
-                type="number"
-                name="height"
-                placeholder="Height (m)"
-                value={form.height}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="temperature"
-                placeholder="Desired Temperature (°C)"
-                value={form.temperature}
-                onChange={handleChange}
-              />
+              <input type="number" name="length" placeholder="Length (m)" value={form.length} onChange={handleChange}/>
+              <input type="number" name="width" placeholder="Width (m)" value={form.width} onChange={handleChange}/>
+              <input type="number" name="height" placeholder="Height (m)" value={form.height} onChange={handleChange}/>
+              <input type="text" name="temperature" placeholder="Desired Temperature (°C)" value={form.temperature} onChange={handleChange}/>
             </>
           )}
 
           {form.services.includes("Aircon Installation") && (
             <>
               <h3>Aircon Details</h3>
-              <input
-                type="number"
-                name="acRoomSize"
-                placeholder="Room Size (m²)"
-                value={form.acRoomSize}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="acType"
-                placeholder="AC Type (Split / Ducted / Portable)"
-                value={form.acType}
-                onChange={handleChange}
-              />
+              <input type="number" name="acRoomSize" placeholder="Room Size (m²)" value={form.acRoomSize} onChange={handleChange}/>
+              <input type="text" name="acType" placeholder="AC Type (Split / Ducted / Portable)" value={form.acType} onChange={handleChange}/>
             </>
           )}
 
           {form.services.includes("Maintenance") && (
             <>
               <h3>Maintenance Details</h3>
-              <input
-                type="text"
-                name="maintenanceType"
-                placeholder="System Type (Cold room / AC / Freezer)"
-                value={form.maintenanceType}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="maintenanceFreq"
-                placeholder="Frequency (Monthly / Quarterly)"
-                value={form.maintenanceFreq}
-                onChange={handleChange}
-              />
+              <input type="text" name="maintenanceType" placeholder="System Type (Cold room / AC / Freezer)" value={form.maintenanceType} onChange={handleChange}/>
+              <input type="text" name="maintenanceFreq" placeholder="Frequency (Monthly / Quarterly)" value={form.maintenanceFreq} onChange={handleChange}/>
             </>
           )}
 
-          {/* ✅ Special Instructions */}
           <h3>Special Instructions (optional)</h3>
           <textarea
             name="specialInstructions"
-            placeholder="Any notes, delivery details, or specific requirements?"
+            placeholder="Any notes or requirements?"
             value={form.specialInstructions}
             onChange={handleChange}
             rows={4}
             className="quote-textarea"
-          ></textarea>
+          />
 
           <div className="quote-form-navigation">
-            <button type="button" onClick={prevStep}>
-              Back
-            </button>
-            <button type="button" onClick={nextStep}>
-              Next
-            </button>
+            <button type="button" onClick={prevStep}>Back</button>
+            <button type="button" onClick={nextStep}>Next</button>
           </div>
         </div>
 
         {/* Step 3 - Contact Info */}
         <div className={`quote-form-step ${step === 3 ? "active" : "hidden"}`}>
           <h3>Your Contact Info</h3>
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="phone"
-            placeholder="Phone Number"
-            value={form.phone}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="location"
-            placeholder="Location"
-            value={form.location}
-            onChange={handleChange}
-          />
+          <input type="text" name="name" placeholder="Full Name" value={form.name} onChange={handleChange} required/>
+          <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required/>
+          <input type="text" name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange}/>
+          <input type="text" name="location" placeholder="Location" value={form.location} onChange={handleChange}/>
 
           <div className="quote-form-navigation">
-            <button type="button" onClick={prevStep}>
-              Back
-            </button>
+            <button type="button" onClick={prevStep}>Back</button>
             <button type="submit">Submit Request</button>
           </div>
         </div>
