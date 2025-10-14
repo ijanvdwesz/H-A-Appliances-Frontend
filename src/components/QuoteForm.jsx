@@ -46,7 +46,7 @@ function QuoteForm({ prefillService, onSuccess }) {
     e.preventDefault();
     const formEl = e.target;
 
-    // ✅ Only validate visible fields
+    // Only validate visible fields to avoid 401/errors
     const visibleFields = Array.from(formEl.elements).filter(
       (el) => el.offsetParent !== null
     );
@@ -104,135 +104,48 @@ function QuoteForm({ prefillService, onSuccess }) {
             form.services.includes("Mobile Unit")) && (
             <>
               <h3>Cold Room / Mobile Details</h3>
-              <input
-                type="number"
-                name="length"
-                placeholder="Length (m)"
-                value={form.length}
-                onChange={handleChange}
-              />
-              <input
-                type="number"
-                name="width"
-                placeholder="Width (m)"
-                value={form.width}
-                onChange={handleChange}
-              />
-              <input
-                type="number"
-                name="height"
-                placeholder="Height (m)"
-                value={form.height}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="temperature"
-                placeholder="Desired Temperature (°C)"
-                value={form.temperature}
-                onChange={handleChange}
-              />
+              <input type="number" name="length" placeholder="Length (m)" value={form.length} onChange={handleChange}/>
+              <input type="number" name="width" placeholder="Width (m)" value={form.width} onChange={handleChange}/>
+              <input type="number" name="height" placeholder="Height (m)" value={form.height} onChange={handleChange}/>
+              <input type="text" name="temperature" placeholder="Desired Temperature (°C)" value={form.temperature} onChange={handleChange}/>
             </>
           )}
 
           {form.services.includes("Aircon Installation") && (
             <>
               <h3>Aircon Details</h3>
-              <input
-                type="number"
-                name="acRoomSize"
-                placeholder="Room Size (m²)"
-                value={form.acRoomSize}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="acType"
-                placeholder="AC Type (Split / Ducted / Portable)"
-                value={form.acType}
-                onChange={handleChange}
-              />
+              <input type="number" name="acRoomSize" placeholder="Room Size (m²)" value={form.acRoomSize} onChange={handleChange}/>
+              <input type="text" name="acType" placeholder="AC Type (Split / Ducted / Portable)" value={form.acType} onChange={handleChange}/>
             </>
           )}
 
           {form.services.includes("Maintenance") && (
             <>
               <h3>Maintenance Details</h3>
-              <input
-                type="text"
-                name="maintenanceType"
-                placeholder="System Type (Cold room / AC / Freezer)"
-                value={form.maintenanceType}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="maintenanceFreq"
-                placeholder="Frequency (Monthly / Quarterly)"
-                value={form.maintenanceFreq}
-                onChange={handleChange}
-              />
+              <input type="text" name="maintenanceType" placeholder="System Type (Cold room / AC / Freezer)" value={form.maintenanceType} onChange={handleChange}/>
+              <input type="text" name="maintenanceFreq" placeholder="Frequency (Monthly / Quarterly)" value={form.maintenanceFreq} onChange={handleChange}/>
             </>
           )}
 
           <h3>Special Instructions (optional)</h3>
-          <textarea
-            name="specialInstructions"
-            placeholder="Any notes or requirements?"
-            value={form.specialInstructions}
-            onChange={handleChange}
-            rows={4}
-            className="quote-textarea"
-          />
+          <textarea name="specialInstructions" placeholder="Any notes or requirements?" value={form.specialInstructions} onChange={handleChange} rows={4} className="quote-textarea"/>
 
           <div className="quote-form-navigation">
-            <button type="button" onClick={prevStep}>
-              Back
-            </button>
-            <button type="button" onClick={nextStep}>
-              Next
-            </button>
+            <button type="button" onClick={prevStep}>Back</button>
+            <button type="button" onClick={nextStep}>Next</button>
           </div>
         </div>
 
         {/* Step 3 - Contact Info */}
         <div className={`quote-form-step ${step === 3 ? "active" : "hidden"}`}>
           <h3>Your Contact Info</h3>
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="phone"
-            placeholder="Phone Number"
-            value={form.phone}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="location"
-            placeholder="Location"
-            value={form.location}
-            onChange={handleChange}
-          />
+          <input type="text" name="name" placeholder="Full Name" value={form.name} onChange={handleChange} required/>
+          <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required/>
+          <input type="text" name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange}/>
+          <input type="text" name="location" placeholder="Location" value={form.location} onChange={handleChange}/>
 
           <div className="quote-form-navigation">
-            <button type="button" onClick={prevStep}>
-              Back
-            </button>
+            <button type="button" onClick={prevStep}>Back</button>
             <button type="submit">Submit Request</button>
           </div>
         </div>
