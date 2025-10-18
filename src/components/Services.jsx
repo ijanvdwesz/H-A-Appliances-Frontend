@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import QuoteModal from "../Pages/QuoteModal"; // ✅ use modal instead of navigating
+import QuoteModal from "../Pages/QuoteModal";
 import "../styles/Services.css";
 
 const services = [
