@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import QuoteForm from "./QuoteForm";
+import QuoteModal from "./QuoteModal"; // ✅ use modal instead of navigating
 import "../styles/Services.css";
 
 const services = [
@@ -40,8 +39,8 @@ const services = [
   },
 ];
 
-// Utility: cycle image index 1 → 7
-function useImageCycle(total = 7, interval = 3000) {
+// Utility hook for cycling images
+function useImageCycle(total = 7, interval = 2500) {
   const [index, setIndex] = useState(1);
   useEffect(() => {
     const timer = setInterval(() => {
@@ -53,12 +52,15 @@ function useImageCycle(total = 7, interval = 3000) {
 }
 
 function Services({ fullPage = false }) {
-  const navigate = useNavigate();
   const currentImageIndex = useImageCycle(7, 2500);
 
+  // ✅ Modal control
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+
   const handleQuote = (serviceValue) => {
-    // Navigate to quote form with prefilled service
-    navigate(`/quote?service=${serviceValue}`);
+    setSelectedService(serviceValue);
+    setIsModalOpen(true);
   };
 
   return (
@@ -79,7 +81,7 @@ function Services({ fullPage = false }) {
             {s.quoteOptions.map((opt, j) => (
               <button
                 key={j}
-                onClick={() => handleQuote(opt.value)}
+                onClick={() => handleQuote(opt.value)} // ✅ open modal
                 className="quote-btn"
               >
                 {opt.label}
@@ -89,11 +91,12 @@ function Services({ fullPage = false }) {
         ))}
       </div>
 
-      {fullPage && (
-        <div className="quote-form-wrapper">
-          <QuoteForm />
-        </div>
-      )}
+      {/* ✅ Quote Modal */}
+      <QuoteModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        selectedService={selectedService}
+      />
     </section>
   );
 }
