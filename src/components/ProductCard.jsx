@@ -46,7 +46,8 @@ function ProductCard({ product }) {
           </button>
         )}
 
-        <p className="product-price">R {product.price}</p>
+        {/* Always display price with 2 decimals */}
+        <p className="product-price">R {Number(product.price).toFixed(2)}</p>
 
         <div className="product-actions">
           <button onClick={handleAddToCart} className="add-cart-btn">
