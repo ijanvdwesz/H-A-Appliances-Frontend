@@ -27,9 +27,9 @@ function ProductCard({ product }) {
       onClick={() => navigate(`/product/${product._id}`)}
       style={{ cursor: "pointer" }}
     >
-      <img src={product.image} alt={product.name} className="product-image" />
+      <img src={product.image} alt={product.title} className="product-image" />
       <div className="product-info">
-        <h3 className="product-title">{product.name || product.title}</h3>
+        <h3 className="product-title">{product.title}</h3>
 
         <p className="product-desc">
           {expanded ? product.description : shortDesc}
@@ -54,9 +54,7 @@ function ProductCard({ product }) {
           </button>
         </div>
 
-        {showAddedMsg && (
-          <p className="added-msg">✅ Added to cart!</p>
-        )}
+        {showAddedMsg && <p className="added-msg">✅ Added to cart!</p>}
       </div>
     </div>
   );
