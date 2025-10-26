@@ -37,8 +37,12 @@ function StorePage() {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/api/products`);
-        const cleaned = data.map(p => ({ ...p, price: Number(p.price) }));
-        setProducts(cleaned);
+        const cleanedData = data.map(p => ({
+          ...p,
+          title: p.title || p.name || "Unnamed Product",
+          price: Number(p.price || 0),
+        }));
+        setProducts(cleanedData);
       } catch (err) {
         console.error("Error fetching products:", err);
       }
@@ -57,7 +61,7 @@ function StorePage() {
 
     if (searchTerm) {
       filtered = filtered.filter(
-        (p) => (p.title || p.name || "").toLowerCase().includes(searchTerm.toLowerCase())
+        (p) => (p.title || "").toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
@@ -89,8 +93,8 @@ function StorePage() {
 
       <main className="store-page">
         <div className="product-grid">
-          {currentProducts.map((p, i) => (
-            <ProductCard key={i} product={p} />
+          {currentProducts.map((p) => (
+            <ProductCard key={p._id} product={p} />
           ))}
         </div>
 

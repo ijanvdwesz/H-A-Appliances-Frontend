@@ -16,8 +16,12 @@ function HomePage() {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/api/products`);
-        const cleaned = data.map(p => ({ ...p, price: Number(p.price) }));
-        setProducts(cleaned.slice(0, 12));
+        const cleanedData = data.map(p => ({
+          ...p,
+          title: p.title || p.name || "Unnamed Product",
+          price: Number(p.price || 0),
+        }));
+        setProducts(cleanedData.slice(0, 12));
       } catch (err) {
         console.error("Error fetching products:", err);
       }
@@ -49,8 +53,8 @@ function HomePage() {
       <section className="homepage-store-preview">
         <h2>Featured Products</h2>
         <div className="product-grid">
-          {products.map((p, i) => (
-            <ProductCard key={i} product={p} />
+          {products.map((p) => (
+            <ProductCard key={p._id} product={p} />
           ))}
         </div>
         <button onClick={handleViewStore} className="view-store-button">

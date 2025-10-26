@@ -17,8 +17,7 @@ function ProductCard({ product }) {
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    // Ensure price is number when adding to cart
-    addToCart({ ...product, price: Number(product.price) });
+    addToCart(product);
     setShowAddedMsg(true);
     setTimeout(() => setShowAddedMsg(false), 1500);
   };

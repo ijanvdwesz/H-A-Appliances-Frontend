@@ -20,8 +20,11 @@ function ProductPage() {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/api/products`);
-        // Ensure all prices are numbers
-        const cleanedData = data.map(p => ({ ...p, price: Number(p.price) }));
+        const cleanedData = data.map(p => ({
+          ...p,
+          title: p.title || p.name || "Unnamed Product",
+          price: Number(p.price || 0),
+        }));
         setProducts(cleanedData);
 
         const selected = cleanedData.find((p) => p._id === id);
@@ -36,7 +39,7 @@ function ProductPage() {
   if (!product) return <p>Loading...</p>;
 
   const handleAddToCart = () => {
-    addToCart({ ...product, price: Number(product.price) });
+    addToCart(product);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
@@ -46,12 +49,11 @@ function ProductPage() {
   return (
     <>
       <Header />
-
       <div className="product-page-container">
         <div className="product-main">
-          <img src={product.image} alt={product.name} className="product-image-large" />
+          <img src={product.image} alt={product.title} className="product-image-large" />
           <div className="product-info">
-            <h2>{product.name}</h2>
+            <h2>{product.title}</h2>
             <p>{product.description}</p>
             <p className="product-price">R {formatPrice(product.price)}</p>
 
