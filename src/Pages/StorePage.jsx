@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 import axios from "axios";
-import BASE_URL from "../config"; // ✅ import base URL
+import BASE_URL from "../config";
 import "../styles/StorePage.css";
 import { useLocation } from "react-router-dom";
 
@@ -37,7 +37,8 @@ function StorePage() {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/api/products`);
-        setProducts(data);
+        const cleaned = data.map(p => ({ ...p, price: Number(p.price) }));
+        setProducts(cleaned);
       } catch (err) {
         console.error("Error fetching products:", err);
       }

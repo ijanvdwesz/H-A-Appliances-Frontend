@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/ProductCard.css";
 import { CartContext } from "../context/CartContext";
-import { formatPrice } from "../utils/formatPrice"; // ✅ import helper
+import { formatPrice } from "../utils/formatPrice";
 
 function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
@@ -17,7 +17,8 @@ function ProductCard({ product }) {
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    addToCart(product);
+    // Ensure price is number when adding to cart
+    addToCart({ ...product, price: Number(product.price) });
     setShowAddedMsg(true);
     setTimeout(() => setShowAddedMsg(false), 1500);
   };

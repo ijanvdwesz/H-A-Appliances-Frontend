@@ -1,5 +1,6 @@
-// utils/formatPrice.js
+// Ensure price is always treated as a number
 export function formatPrice(price) {
-  if (price == null || isNaN(price)) return "0.00";
-  return Number(price).toFixed(2);
+  const num = parseFloat(String(price).replace(",", "."));
+  if (isNaN(num)) return "0.00";
+  return num.toFixed(2);
 }

@@ -16,7 +16,8 @@ function HomePage() {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/api/products`);
-        setProducts(data.slice(0, 12));
+        const cleaned = data.map(p => ({ ...p, price: Number(p.price) }));
+        setProducts(cleaned.slice(0, 12));
       } catch (err) {
         console.error("Error fetching products:", err);
       }

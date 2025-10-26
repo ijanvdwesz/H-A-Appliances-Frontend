@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import axios from "axios";
 import BASE_URL from "../config";
 import "../styles/ProductPage.css";
-import { formatPrice } from "../utils/formatPrice"; // ✅ import helper
+import { formatPrice } from "../utils/formatPrice";
 
 function ProductPage() {
   const { id } = useParams();
@@ -20,9 +20,11 @@ function ProductPage() {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/api/products`);
-        setProducts(data);
+        // Ensure all prices are numbers
+        const cleanedData = data.map(p => ({ ...p, price: Number(p.price) }));
+        setProducts(cleanedData);
 
-        const selected = data.find((p) => p._id === id);
+        const selected = cleanedData.find((p) => p._id === id);
         setProduct(selected);
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -34,7 +36,7 @@ function ProductPage() {
   if (!product) return <p>Loading...</p>;
 
   const handleAddToCart = () => {
-    addToCart(product);
+    addToCart({ ...product, price: Number(product.price) });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
