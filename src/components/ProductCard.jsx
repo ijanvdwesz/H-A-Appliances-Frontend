@@ -10,14 +10,16 @@ function ProductCard({ product }) {
   const [showAddedMsg, setShowAddedMsg] = useState(false);
   const navigate = useNavigate();
 
-  const shortDesc =
-    product.description && product.description.length > 100
-      ? product.description.slice(0, 100) + "..."
-      : product.description;
+  // Defensive defaults
+  const title = product.title || product.name || "No title";
+  const price = Number(product.price) || 0;
+  const description = product.description || "";
+
+  const shortDesc = description.length > 100 ? description.slice(0, 100) + "..." : description;
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    addToCart(product);
+    addToCart({ ...product, price }); // ensure numeric price
     setShowAddedMsg(true);
     setTimeout(() => setShowAddedMsg(false), 1500);
   };
@@ -28,12 +30,11 @@ function ProductCard({ product }) {
       onClick={() => navigate(`/product/${product._id}`)}
       style={{ cursor: "pointer" }}
     >
-      <img src={product.image} alt={product.title} className="product-image" />
+      <img src={product.image || ""} alt={title} className="product-image" />
       <div className="product-info">
-        <h3 className="product-title">{product.title}</h3>
-
-        <p className="product-desc">{expanded ? product.description : shortDesc}</p>
-        {product.description && product.description.length > 100 && (
+        <h3 className="product-title">{title}</h3>
+        <p className="product-desc">{expanded ? description : shortDesc}</p>
+        {description.length > 100 && (
           <button
             className="toggle-btn"
             onClick={(e) => {
@@ -44,8 +45,7 @@ function ProductCard({ product }) {
             {expanded ? "View Less" : "View More"}
           </button>
         )}
-
-        <p className="product-price">R {formatPrice(product.price)}</p>
+        <p className="product-price">R {formatPrice(price)}</p>
 
         <div className="product-actions">
           <button onClick={handleAddToCart} className="add-cart-btn">
