@@ -3,18 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import "../styles/CheckoutPage.css";
 import BASE_URL from "../config";
+import { formatPrice } from "../utils/formatPrice"; // ✅ import helper
 
 function CheckoutPage() {
   const { cart, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const [stage, setStage] = useState(1);
-  const [delivery, setDelivery] = useState({
-    name: "",
-    email: "",
-    address: "",
-    phone: "",
-  });
+  const [delivery, setDelivery] = useState({ name: "", email: "", address: "", phone: "" });
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -36,13 +32,7 @@ function CheckoutPage() {
       await fetch(`${BASE_URL}/api/send-confirmation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: delivery.name,
-          email: delivery.email,
-          total,
-          address: delivery.address,
-          cart,
-        }),
+        body: JSON.stringify({ name: delivery.name, email: delivery.email, total, address: delivery.address, cart }),
       });
     } catch (error) {
       console.error("Email send failed:", error);
@@ -55,47 +45,22 @@ function CheckoutPage() {
         <div className="delivery-form">
           <h2>Delivery Information 🚚</h2>
 
-          <input
-            type="text"
-            placeholder="Full Name"
-            value={delivery.name}
-            onChange={(e) => setDelivery({ ...delivery, name: e.target.value })}
-          />
-
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={delivery.email}
-            onChange={(e) => setDelivery({ ...delivery, email: e.target.value })}
-          />
-
-          <input
-            type="text"
-            placeholder="Phone Number"
-            value={delivery.phone}
-            onChange={(e) => setDelivery({ ...delivery, phone: e.target.value })}
-          />
-
-          <textarea
-            placeholder="Delivery Address"
-            value={delivery.address}
-            onChange={(e) => setDelivery({ ...delivery, address: e.target.value })}
-          ></textarea>
+          <input type="text" placeholder="Full Name" value={delivery.name} onChange={(e) => setDelivery({ ...delivery, name: e.target.value })} />
+          <input type="email" placeholder="Email Address" value={delivery.email} onChange={(e) => setDelivery({ ...delivery, email: e.target.value })} />
+          <input type="text" placeholder="Phone Number" value={delivery.phone} onChange={(e) => setDelivery({ ...delivery, phone: e.target.value })} />
+          <textarea placeholder="Delivery Address" value={delivery.address} onChange={(e) => setDelivery({ ...delivery, address: e.target.value })}></textarea>
 
           <div className="cart-summary-checkout">
             <h3>Order Summary:</h3>
             {cart.map((item) => (
               <p key={item._id}>
-                {item.name} x{item.quantity} - R{(item.price * item.quantity).toFixed(2)}
+                {item.name} x{item.quantity} - R{formatPrice(item.price * item.quantity)}
               </p>
             ))}
-            <p><strong>Total: R{total.toFixed(2)}</strong></p>
+            <p><strong>Total: R{formatPrice(total)}</strong></p>
           </div>
 
-          <button
-            disabled={!delivery.name || !delivery.email || !delivery.phone || !delivery.address}
-            onClick={() => setStage(2)}
-          >
+          <button disabled={!delivery.name || !delivery.email || !delivery.phone || !delivery.address} onClick={() => setStage(2)}>
             Proceed to Payment
           </button>
         </div>
@@ -104,7 +69,7 @@ function CheckoutPage() {
       {stage === 2 && (
         <div className="payment-section">
           <h2>Payment 💳</h2>
-          <p>Total: <strong>R {total.toFixed(2)}</strong></p>
+          <p>Total: <strong>R {formatPrice(total)}</strong></p>
           <button onClick={handlePayFast}>Pay with PayFast Sandbox</button>
         </div>
       )}

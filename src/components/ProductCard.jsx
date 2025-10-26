@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/ProductCard.css";
 import { CartContext } from "../context/CartContext";
+import { formatPrice } from "../utils/formatPrice"; // ✅ import helper
 
 function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
@@ -31,9 +32,7 @@ function ProductCard({ product }) {
       <div className="product-info">
         <h3 className="product-title">{product.title}</h3>
 
-        <p className="product-desc">
-          {expanded ? product.description : shortDesc}
-        </p>
+        <p className="product-desc">{expanded ? product.description : shortDesc}</p>
         {product.description && product.description.length > 100 && (
           <button
             className="toggle-btn"
@@ -46,8 +45,7 @@ function ProductCard({ product }) {
           </button>
         )}
 
-        {/* Always display price with 2 decimals */}
-        <p className="product-price">R {Number(product.price).toFixed(2)}</p>
+        <p className="product-price">R {formatPrice(product.price)}</p>
 
         <div className="product-actions">
           <button onClick={handleAddToCart} className="add-cart-btn">

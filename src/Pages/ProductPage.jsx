@@ -4,8 +4,9 @@ import { CartContext } from "../context/CartContext";
 import ProductCard from "../components/ProductCard";
 import Header from "../components/Header";
 import axios from "axios";
-import BASE_URL from "../config"; // ✅ import base URL
+import BASE_URL from "../config";
 import "../styles/ProductPage.css";
+import { formatPrice } from "../utils/formatPrice"; // ✅ import helper
 
 function ProductPage() {
   const { id } = useParams();
@@ -46,15 +47,11 @@ function ProductPage() {
 
       <div className="product-page-container">
         <div className="product-main">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="product-image-large"
-          />
+          <img src={product.image} alt={product.name} className="product-image-large" />
           <div className="product-info">
             <h2>{product.name}</h2>
             <p>{product.description}</p>
-            <p className="product-price">R {product.price}</p>
+            <p className="product-price">R {formatPrice(product.price)}</p>
 
             <div className="product-buttons">
               <button onClick={handleAddToCart} className="add-cart-btn">
@@ -65,10 +62,7 @@ function ProductPage() {
               <button onClick={() => navigate("/cart")} className="go-cart-btn">
                 Go to Cart
               </button>
-              <button
-                onClick={() => navigate("/checkout")}
-                className="checkout-btn"
-              >
+              <button onClick={() => navigate("/checkout")} className="checkout-btn">
                 Checkout
               </button>
             </div>
