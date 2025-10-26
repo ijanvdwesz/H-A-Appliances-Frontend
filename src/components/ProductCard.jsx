@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/ProductCard.css";
 import { CartContext } from "../context/CartContext";
@@ -9,6 +9,11 @@ function ProductCard({ product }) {
   const [expanded, setExpanded] = useState(false);
   const [showAddedMsg, setShowAddedMsg] = useState(false);
   const navigate = useNavigate();
+
+  // Step 1: DEBUG log
+  useEffect(() => {
+    console.log("🚀 ProductCard received product:", product);
+  }, [product]);
 
   // Defensive defaults
   const title = product.title || product.name || "No title";
