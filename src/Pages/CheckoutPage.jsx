@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import "../styles/CheckoutPage.css";
 import BASE_URL from "../config";
-import { formatPrice } from "../utils/formatPrice"; // ✅ import helper
+import { formatPrice } from "../utils/formatPrice";
 
 function CheckoutPage() {
   const { cart, clearCart } = useContext(CartContext);
@@ -11,32 +11,55 @@ function CheckoutPage() {
 
   const [stage, setStage] = useState(1);
   const [delivery, setDelivery] = useState({ name: "", email: "", address: "", phone: "" });
+  const [loading, setLoading] = useState(false);
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handlePayFast = async () => {
+    if (!delivery.name || !delivery.email || !delivery.address || !delivery.phone) {
+      alert("Please fill in all required delivery fields.");
+      return;
+    }
+
     try {
+      setLoading(true);
+      // 1️⃣ Send confirmation email
+      const emailResponse = await sendConfirmationEmail();
+      if (!emailResponse.ok) {
+        const errData = await emailResponse.json();
+        console.error("Email API error:", errData);
+        alert("Failed to send confirmation email. Please try again.");
+        setLoading(false);
+        return;
+      }
+
+      // 2️⃣ Proceed with payment simulation
       alert("Redirecting to PayFast Sandbox...");
-      await sendConfirmationEmail();
+
+      // 3️⃣ Clear cart and show confirmation
       clearCart();
       setStage(3);
       setTimeout(() => navigate("/"), 4000);
     } catch (error) {
-      console.error("Payment failed:", error);
-      alert("Payment failed. Please try again.");
+      console.error("Payment/email error:", error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   const sendConfirmationEmail = async () => {
-    try {
-      await fetch(`${BASE_URL}/api/send-confirmation`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: delivery.name, email: delivery.email, total, address: delivery.address, cart }),
-      });
-    } catch (error) {
-      console.error("Email send failed:", error);
-    }
+    return fetch(`${BASE_URL}/api/send-confirmation`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: delivery.name,
+        email: delivery.email,
+        total,
+        address: delivery.address,
+        cart,
+      }),
+    });
   };
 
   return (
@@ -45,10 +68,33 @@ function CheckoutPage() {
         <div className="delivery-form">
           <h2>Delivery Information 🚚</h2>
 
-          <input type="text" placeholder="Full Name" value={delivery.name} onChange={(e) => setDelivery({ ...delivery, name: e.target.value })} />
-          <input type="email" placeholder="Email Address" value={delivery.email} onChange={(e) => setDelivery({ ...delivery, email: e.target.value })} />
-          <input type="text" placeholder="Phone Number" value={delivery.phone} onChange={(e) => setDelivery({ ...delivery, phone: e.target.value })} />
-          <textarea placeholder="Delivery Address" value={delivery.address} onChange={(e) => setDelivery({ ...delivery, address: e.target.value })}></textarea>
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={delivery.name}
+            onChange={(e) => setDelivery({ ...delivery, name: e.target.value })}
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={delivery.email}
+            onChange={(e) => setDelivery({ ...delivery, email: e.target.value })}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            value={delivery.phone}
+            onChange={(e) => setDelivery({ ...delivery, phone: e.target.value })}
+            required
+          />
+          <textarea
+            placeholder="Delivery Address"
+            value={delivery.address}
+            onChange={(e) => setDelivery({ ...delivery, address: e.target.value })}
+            required
+          />
 
           <div className="cart-summary-checkout">
             <h3>Order Summary:</h3>
@@ -57,10 +103,15 @@ function CheckoutPage() {
                 {item.name} x{item.quantity} - R{formatPrice(item.price * item.quantity)}
               </p>
             ))}
-            <p><strong>Total: R{formatPrice(total)}</strong></p>
+            <p>
+              <strong>Total: R{formatPrice(total)}</strong>
+            </p>
           </div>
 
-          <button disabled={!delivery.name || !delivery.email || !delivery.phone || !delivery.address} onClick={() => setStage(2)}>
+          <button
+            disabled={!delivery.name || !delivery.email || !delivery.phone || !delivery.address}
+            onClick={() => setStage(2)}
+          >
             Proceed to Payment
           </button>
         </div>
@@ -70,7 +121,9 @@ function CheckoutPage() {
         <div className="payment-section">
           <h2>Payment 💳</h2>
           <p>Total: <strong>R {formatPrice(total)}</strong></p>
-          <button onClick={handlePayFast}>Pay with PayFast Sandbox</button>
+          <button onClick={handlePayFast} disabled={loading}>
+            {loading ? "Processing..." : "Pay with PayFast Sandbox"}
+          </button>
         </div>
       )}
 
