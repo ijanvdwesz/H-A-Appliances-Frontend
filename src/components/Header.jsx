@@ -37,7 +37,7 @@ function Header({ categories = [] }) {
   return (
     <header className="header">
       <div className="header-top">
-        {/* 🔥 Wolf + Title Combo */}
+        {/* ✅ Wolf + Text Title */}
         <div
           className="logo-container"
           onClick={() => navigate("/")}
@@ -48,11 +48,9 @@ function Header({ categories = [] }) {
             alt="Cold Company Wolf Logo"
             className="logo"
           />
-          <img
-            src="/assets/logo/title.png"
-            alt="Cold Company Title"
-            className="title-image"
-          />
+
+          {/* ✅ Replace title image with TEXT */}
+          <h1 className="title-text">AC Systems 4U</h1>
         </div>
 
         {/* 🔍 Search */}

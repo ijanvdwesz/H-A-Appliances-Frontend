@@ -171,6 +171,59 @@
   border-radius: 50%;
   padding: 2px 6px;
 }
+/* ❄️ Icy Title Text */
+.title-text {
+  font-size: 42px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-family: "Segoe UI", sans-serif;
+  color: #e6f9ff;
+
+  /* Frosted icy gradient look */
+  background: linear-gradient(
+    180deg,
+    #e6f9ff 0%,
+    #cdeeff 35%,
+    #a8ddff 60%,
+    #d8f7ff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Cold glow */
+  text-shadow:
+    0 0 6px rgba(180, 235, 255, 0.9),
+    0 0 12px rgba(120, 205, 255, 0.7),
+    0 0 22px rgba(100, 195, 255, 0.45);
+
+  /* Slight shimmer pulse */
+  animation: icyPulse 3.5s ease-in-out infinite;
+}
+
+/* ❄️ Pulsing icy glow */
+@keyframes icyPulse {
+  0% {
+    text-shadow:
+      0 0 6px rgba(170, 230, 255, 0.7),
+      0 0 12px rgba(120, 200, 255, 0.55),
+      0 0 20px rgba(110, 195, 255, 0.4);
+    filter: drop-shadow(0 0 4px #91d9ff);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(210, 245, 255, 1),
+      0 0 18px rgba(160, 225, 255, 0.9),
+      0 0 30px rgba(140, 215, 255, 0.7);
+    filter: drop-shadow(0 0 8px #b3ecff);
+  }
+  100% {
+    text-shadow:
+      0 0 6px rgba(170, 230, 255, 0.7),
+      0 0 12px rgba(120, 200, 255, 0.55),
+      0 0 20px rgba(110, 195, 255, 0.4);
+    filter: drop-shadow(0 0 4px #91d9ff);
+  }
+}
 
 /* Mobile responsive */
 @media (max-width: 768px) {
