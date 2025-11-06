@@ -46,6 +46,7 @@
   text-align: center;
   flex-grow: 1;
   margin: 0 1rem;
+  animation: glowPulse 3s infinite ease-in-out;
 }
 
 .neon-title-line {

@@ -26,9 +26,8 @@ function AboutContactPage() {
             className="neon-title-container"
             onClick={() => window.location.href = "/"}
           >
-            <h1 className="neon-title-line neon-title-h1">H&amp;A</h1>
-            <h2 className="neon-title-line neon-title-h2">Appliances</h2>
-          </div>
+            <h1 className="neon-title-line neon-title-h1">AC Systems 4U</h1>
+            
 
           {/* Right: Contact info + burger */}
           <div className="header-right">
