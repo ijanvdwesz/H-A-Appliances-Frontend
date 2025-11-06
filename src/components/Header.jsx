@@ -37,20 +37,18 @@ function Header({ categories = [] }) {
   return (
     <header className="header">
       <div className="header-top">
-        {/* ✅ Wolf + Text Title */}
-        <div
-          className="logo-container"
-          onClick={() => navigate("/")}
-          style={{ cursor: "pointer" }}
-        >
-          <img
-            src="/assets/logo/Wolf2.png"
-            alt="Cold Company Wolf Logo"
-            className="logo"
-          />
-
-          {/* ✅ Replace title image with TEXT */}
-          <h1 className="title-text">AC Systems 4U</h1>
+        {/* ✅ Logo + Text with glow wrapper */}
+        <div className="logo-container" onClick={() => navigate("/")}>
+          <div className="logo-glow-wrapper">
+            <img
+              src="/assets/logo/Wolf2.png"
+              alt="Cold Company Wolf Logo"
+              className="logo"
+            />
+          </div>
+          <div className="title-text-glow">
+            <h1 className="title-text">AC Systems 4U</h1>
+          </div>
         </div>
 
         {/* 🔍 Search */}
