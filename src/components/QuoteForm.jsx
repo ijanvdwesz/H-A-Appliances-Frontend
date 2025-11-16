@@ -62,7 +62,7 @@ function QuoteForm({ prefillService, onSuccess }) {
       setLoading(true);
       const response = await axios.post(`${BASE_URL}/api/quote`, form, { withCredentials: true });
       console.log("✅ Backend response:", response.data);
-      alert("Quote request submitted! ColdCompany will email you back.");
+      alert("Quote request submitted! ACSystems4U will email you back!");
       if (onSuccess) onSuccess();
       setForm({
         services: [],
