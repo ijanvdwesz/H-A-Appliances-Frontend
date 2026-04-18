@@ -2,7 +2,7 @@
    HEADER (full-width shimmer)
    ============================ */
 .header {
-  background-color: #0a2540;
+  background-color: #0F5FBF;
   color: #d0ecf7;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   padding: 0.5rem 1rem;
@@ -146,22 +146,22 @@
   border: none;
   width: 50%;
   max-width: 500px;
-  color: #0a2540;
+  color: #0F5FBF;
   font-size: 1rem;
-  box-shadow: 0 0 5px #1e90ff inset;
+  box-shadow: 0 0 5px #4DB8FF inset;
   box-sizing: border-box;
 }
 
 .search-button {
   margin-left: 0.5rem;
   padding: 0.6rem 1.2rem;
-  background-color: #1e90ff;
-  color: #0a2540;
+  background-color: #4DB8FF;
+  color: #0F5FBF;
   border: none;
   border-radius: 9999px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 6px #1e90ff;
+  box-shadow: 0 0 6px #4DB8FF;
 }
 
 .search-button:hover {
@@ -190,9 +190,9 @@
   border: none;
   text-align: center;
   font-size: 0.85rem;
-  background: #1e293b;
+  background: #1E90FF;
   color: #d0ecf7;
-  box-shadow: 0 0 5px #1e90ff inset;
+  box-shadow: 0 0 5px #4DB8FF inset;
 }
 
 /* ============================
@@ -208,9 +208,9 @@
 
 .cart-icon {
   font-size: 28px;
-  color: #1e90ff;
+  color: #4DB8FF;
   transition: color 0.3s ease;
-  text-shadow: 0 0 5px #1e90ff;
+  text-shadow: 0 0 5px #4DB8FF;
 }
 
 .cart-icon:hover {

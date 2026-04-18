@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #1e293b;
+  background-color: #1E90FF;
   padding: 0.1rem 0.2rem;
 
 }
@@ -18,11 +18,11 @@
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
-  text-shadow: 0 0 6px #1e90ff;
+  text-shadow: 0 0 6px #4DB8FF;
 }
 
 .nav-links a:hover {
-  color: #1e90ff;
+  color: #4DB8FF;
   text-shadow: 0 0 12px #0b5ed7;
 }
 

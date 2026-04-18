@@ -1,6 +1,6 @@
 .store-page {
   padding: 2rem;
-  background: linear-gradient(135deg, rgb(45, 255, 255), #1e293b);
+  background: linear-gradient(135deg, rgb(45, 255, 255), #1E90FF);
   min-height: 100vh;
   color: #e0f7ff;
   font-family: "Orbitron", sans-serif;
@@ -22,13 +22,13 @@
 
 .pagination button {
   padding: 0.5rem 1rem;
-  background-color: #1e90ff;
-  color: #0a2540;
+  background-color: #4DB8FF;
+  color: #0F5FBF;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 0 8px #1e90ff;
+  box-shadow: 0 0 8px #4DB8FF;
   transition: all 0.3s ease;
 }
 
@@ -47,8 +47,8 @@
 
 .pagination span {
   font-weight: bold;
-  color: #1e90ff;
-  text-shadow: 0 0 6px #1e90ff;
+  color: #4DB8FF;
+  text-shadow: 0 0 6px #4DB8FF;
 }
 
 /* Responsive grid */

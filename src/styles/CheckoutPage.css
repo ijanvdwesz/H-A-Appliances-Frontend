@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: radial-gradient(circle at top, #1e293b 10%, #0a2540 80%);
+  background: radial-gradient(circle at top, #1E90FF 10%, #0F5FBF 80%);
   color: #e0f7ff;
   font-family: "Orbitron", sans-serif;
   padding: 2rem 1rem;
@@ -32,14 +32,14 @@
   left: 5%;
   width: 90%;
   height: 4px;
-  background: linear-gradient(90deg, #1e90ff, #0b5ed7);
+  background: linear-gradient(90deg, #4DB8FF, #0b5ed7);
   z-index: 0;
   border-radius: 10px;
 }
 
 .stage-step {
-  background: #0a2540;
-  border: 2px solid #1e90ff;
+  background: #0F5FBF;
+  border: 2px solid #4DB8FF;
   border-radius: 50%;
   width: 45px;
   height: 45px;
@@ -47,17 +47,17 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: #1e90ff;
-  text-shadow: 0 0 8px #1e90ff;
+  color: #4DB8FF;
+  text-shadow: 0 0 8px #4DB8FF;
   position: relative;
   z-index: 1;
   transition: all 0.4s ease;
 }
 
 .stage-step.active {
-  background: #1e90ff;
-  color: #0a2540;
-  box-shadow: 0 0 20px #1e90ff;
+  background: #4DB8FF;
+  color: #0F5FBF;
+  box-shadow: 0 0 20px #4DB8FF;
   transform: scale(1.15);
 }
 
@@ -67,7 +67,7 @@
 .confirmation {
   width: 100%;
   max-width: 500px;
-  background: #1e293b;
+  background: #1E90FF;
   padding: 1.8rem;
   border-radius: 12px;
   box-shadow: 0 0 18px rgba(56, 189, 248, 0.4);
@@ -79,8 +79,8 @@
 .delivery-form h2,
 .payment-section h2,
 .confirmation h2 {
-  color: #1e90ff;
-  text-shadow: 0 0 10px #1e90ff;
+  color: #4DB8FF;
+  text-shadow: 0 0 10px #4DB8FF;
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
@@ -93,9 +93,9 @@
   margin-bottom: 1rem;
   border-radius: 8px;
   border: none;
-  background: #0a2540;
+  background: #0F5FBF;
   color: #e0f7ff;
-  box-shadow: inset 0 0 6px #1e90ff;
+  box-shadow: inset 0 0 6px #4DB8FF;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -108,8 +108,8 @@
 
 /* ===== Buttons ===== */
 button {
-  background: #1e90ff;
-  color: #0a2540;
+  background: #4DB8FF;
+  color: #0F5FBF;
   border: none;
   padding: 0.8rem 1.5rem;
   border-radius: 10px;
@@ -117,7 +117,7 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 12px #1e90ff;
+  box-shadow: 0 0 12px #4DB8FF;
   margin-top: 0.5rem;
 }
 
@@ -143,18 +143,18 @@ button:disabled {
 .truck-body {
   width: 100%;
   height: 60%;
-  background: linear-gradient(90deg, #1e90ff, #0b5ed7);
+  background: linear-gradient(90deg, #4DB8FF, #0b5ed7);
   border-radius: 8px;
   position: relative;
   animation: truckMove 3s infinite ease-in-out;
-  box-shadow: 0 0 10px #1e90ff;
+  box-shadow: 0 0 10px #4DB8FF;
 }
 
 .truck-wheel {
   width: 30px;
   height: 30px;
-  background: #0a2540;
-  border: 3px solid #1e90ff;
+  background: #0F5FBF;
+  border: 3px solid #4DB8FF;
   border-radius: 50%;
   position: absolute;
   bottom: -10px;
@@ -176,8 +176,8 @@ button:disabled {
 
 /* ===== Confirmation ===== */
 .confirmation {
-  background: radial-gradient(circle at center, #1e293b 40%, #0a2540 90%);
-  box-shadow: 0 0 25px #1e90ff;
+  background: radial-gradient(circle at center, #1E90FF 40%, #0F5FBF 90%);
+  box-shadow: 0 0 25px #4DB8FF;
 }
 
 .confirmation h2 {

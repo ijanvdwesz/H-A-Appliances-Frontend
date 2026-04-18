@@ -1,15 +1,15 @@
 /* ===== Base Page ===== */
 .cart-page {
   padding: 2rem;
-  background: linear-gradient(135deg, #0a2540, #1e293b); /* icy background */
+  background: linear-gradient(135deg, #0F5FBF, #1E90FF); /* icy background */
   color: #e0f7ff; /* neon light blue text */
   font-family: "Orbitron", sans-serif;
 }
 
 .cart-page h2 {
   text-align: center;
-  color: #1e90ff;
-  text-shadow: 0 0 8px #1e90ff;
+  color: #4DB8FF;
+  text-shadow: 0 0 8px #4DB8FF;
   margin-bottom: 1.5rem;
 }
 
@@ -23,10 +23,10 @@
 .cart-item {
   display: flex;
   align-items: flex-start;
-  background: #1e293b;
+  background: #1E90FF;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 8px #1e90ff;
+  box-shadow: 0 0 8px #4DB8FF;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -41,7 +41,7 @@
   object-fit: cover;
   border-radius: 6px;
   margin-right: 1rem;
-  border: 1px solid #1e90ff;
+  border: 1px solid #4DB8FF;
   flex-shrink: 0;
 }
 
@@ -55,8 +55,8 @@
 
 .cart-item-info h4 {
   margin: 0;
-  color: #1e90ff;
-  text-shadow: 0 0 8px #1e90ff;
+  color: #4DB8FF;
+  text-shadow: 0 0 8px #4DB8FF;
   font-size: 1.2rem;
 }
 
@@ -68,7 +68,7 @@
 
 .cart-price {
   font-weight: bold;
-  color: #1e90ff;
+  color: #4DB8FF;
   font-size: 1rem;
 }
 
@@ -81,12 +81,12 @@
 }
 
 .quantity-controls button {
-  background: #1e90ff;
+  background: #4DB8FF;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 5px;
-  color: #0a2540;
+  color: #0F5FBF;
   font-weight: bold;
   transition: all 0.3s ease;
 }
@@ -125,19 +125,19 @@
   margin-top: 2rem;
   text-align: right;
   font-weight: bold;
-  color: #1e90ff;
-  text-shadow: 0 0 6px #1e90ff;
+  color: #4DB8FF;
+  text-shadow: 0 0 6px #4DB8FF;
 }
 
 .checkout-btn {
-  background: #1e90ff;
-  color: #0a2540;
+  background: #4DB8FF;
+  color: #0F5FBF;
   padding: 0.7rem 1.5rem;
   border-radius: 6px;
   border: none;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 0 10px #1e90ff;
+  box-shadow: 0 0 10px #4DB8FF;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
 }
@@ -155,7 +155,7 @@
 }
 
 .cart-page a {
-  color: #1e90ff;
+  color: #4DB8FF;
   text-decoration: underline;
 }
 

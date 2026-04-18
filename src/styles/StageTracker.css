@@ -19,19 +19,19 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #0a2540;
-  color: #1e90ff;
+  background: #0F5FBF;
+  color: #4DB8FF;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5rem;
-  box-shadow: 0 0 8px #1e90ff;
+  box-shadow: 0 0 8px #4DB8FF;
   font-weight: bold;
 }
 
 .stage.active .stage-number {
-  background: #1e90ff;
-  color: #0a2540;
+  background: #4DB8FF;
+  color: #0F5FBF;
   box-shadow: 0 0 12px #0b5ed7;
 }
 
@@ -43,5 +43,5 @@
 
 .stage-label {
   font-size: 0.85rem;
-  text-shadow: 0 0 6px #1e90ff;
+  text-shadow: 0 0 6px #4DB8FF;
 }

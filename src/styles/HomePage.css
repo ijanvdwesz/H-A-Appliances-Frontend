@@ -1,7 +1,7 @@
 .homepage-store-preview {
   padding: 2rem;
   text-align: center;
-  background: linear-gradient(135deg, rgb(225, 255, 255), #1e293b);
+  background: linear-gradient(135deg, rgb(225, 255, 255), #1E90FF);
   color: #e0f7ff;
   font-family: "Orbitron", sans-serif;
 }
@@ -9,8 +9,8 @@
 .homepage-store-preview h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: #1e90ff;
-  text-shadow: 0 0 8px #1e90ff;
+  color: #4DB8FF;
+  text-shadow: 0 0 8px #4DB8FF;
 }
 
 /* Grid for preview products */
@@ -27,12 +27,12 @@
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
-  background-color: #1e90ff;
-  color: #0a2540;
+  background-color: #4DB8FF;
+  color: #0F5FBF;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 10px #1e90ff;
+  box-shadow: 0 0 10px #4DB8FF;
   transition: all 0.3s ease;
 }
 
