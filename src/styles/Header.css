@@ -165,7 +165,7 @@
 }
 
 .search-button:hover {
-  background-color: #0b5ed7;
+  background-color: #E11D2E;
   color: #f0f9ff;
   box-shadow: 0 0 10px #0b5ed7;
 }
@@ -184,7 +184,7 @@
 .category-dropdown,
 .price-input,
 .filters-container .search-button {
-  width: 100%;
+  width: 95%;
   padding: 0.5rem;
   border-radius: 5px;
   border: none;
