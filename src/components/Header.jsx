@@ -41,7 +41,7 @@ function Header({ categories = [] }) {
         <div className="logo-container" onClick={() => navigate("/")}>
           <div className="logo-glow-wrapper">
             <img
-              src="/assets/logo/Wolf2.png"
+              src="/assets/logo/ACSystems4U-Logo.jpeg"
               alt="Cold Company Wolf Logo"
               className="logo"
             />
