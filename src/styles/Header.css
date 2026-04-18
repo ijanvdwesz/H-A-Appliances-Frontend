@@ -162,6 +162,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 6px #4DB8FF;
+  height: ;
 }
 
 .search-button:hover {
@@ -185,6 +186,7 @@
 .price-input,
 .filters-container .search-button {
   width: 95%;
+  height: auto;
   padding: 0.5rem;
   border-radius: 5px;
   border: none;
