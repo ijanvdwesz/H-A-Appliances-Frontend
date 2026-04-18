@@ -88,7 +88,7 @@
   font-size: 42px;
   font-weight: 700;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(
+  /*background: linear-gradient(
     180deg,
     #d8f2ff 0%,
     #c2e5ff 35%,
@@ -97,7 +97,7 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
+*/
   text-shadow:
     0 0 4px rgba(150, 215, 255, 0.6),
     0 0 8px rgba(110, 185, 245, 0.4),
