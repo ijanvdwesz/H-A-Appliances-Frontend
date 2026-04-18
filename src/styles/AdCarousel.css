@@ -2,7 +2,8 @@
   width: 100%;
   overflow: hidden;
   padding: 1rem 0;
-  background: linear-gradient(to right, #e6f7ff, #ffffff);
+ /* background: linear-gradient(to right, #e6f7ff, #ffffff);*/
+  background:#4DB8FF;
   border-top: 2px solid #bae6fd;
   border-bottom: 2px solid #bae6fd;
 }

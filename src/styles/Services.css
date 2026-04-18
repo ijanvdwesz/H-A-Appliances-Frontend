@@ -1,6 +1,7 @@
 .services-section {
   padding: 2rem;
-  background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
+ /* background: linear-gradient(135deg, #f0f9ff, #e0f7fa);*/
+  background:#4DB8FF
 }
 
 .services-title {
