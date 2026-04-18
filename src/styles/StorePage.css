@@ -22,13 +22,13 @@
 
 .pagination button {
   padding: 0.5rem 1rem;
-  background-color: #38bdf8;
-  color: #0f172a;
+  background-color: #1e90ff;
+  color: #0a2540;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 0 8px #38bdf8;
+  box-shadow: 0 0 8px #1e90ff;
   transition: all 0.3s ease;
 }
 
@@ -40,15 +40,15 @@
 }
 
 .pagination button:hover:not(:disabled) {
-  background-color: #0ea5e9;
+  background-color: #0b5ed7;
   color: #f0f9ff;
-  box-shadow: 0 0 12px #0ea5e9;
+  box-shadow: 0 0 12px #0b5ed7;
 }
 
 .pagination span {
   font-weight: bold;
-  color: #38bdf8;
-  text-shadow: 0 0 6px #38bdf8;
+  color: #1e90ff;
+  text-shadow: 0 0 6px #1e90ff;
 }
 
 /* Responsive grid */

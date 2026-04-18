@@ -18,12 +18,12 @@
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
-  text-shadow: 0 0 6px #38bdf8;
+  text-shadow: 0 0 6px #1e90ff;
 }
 
 .nav-links a:hover {
-  color: #38bdf8;
-  text-shadow: 0 0 12px #0ea5e9;
+  color: #1e90ff;
+  text-shadow: 0 0 12px #0b5ed7;
 }
 
 /* Responsive */

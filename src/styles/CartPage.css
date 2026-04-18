@@ -1,15 +1,15 @@
 /* ===== Base Page ===== */
 .cart-page {
   padding: 2rem;
-  background: linear-gradient(135deg, #0f172a, #1e293b); /* icy background */
+  background: linear-gradient(135deg, #0a2540, #1e293b); /* icy background */
   color: #e0f7ff; /* neon light blue text */
   font-family: "Orbitron", sans-serif;
 }
 
 .cart-page h2 {
   text-align: center;
-  color: #38bdf8;
-  text-shadow: 0 0 8px #38bdf8;
+  color: #1e90ff;
+  text-shadow: 0 0 8px #1e90ff;
   margin-bottom: 1.5rem;
 }
 
@@ -26,13 +26,13 @@
   background: #1e293b;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 8px #38bdf8;
+  box-shadow: 0 0 8px #1e90ff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cart-item:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 15px #0ea5e9;
+  box-shadow: 0 0 15px #0b5ed7;
 }
 
 .cart-item img {
@@ -41,7 +41,7 @@
   object-fit: cover;
   border-radius: 6px;
   margin-right: 1rem;
-  border: 1px solid #38bdf8;
+  border: 1px solid #1e90ff;
   flex-shrink: 0;
 }
 
@@ -55,8 +55,8 @@
 
 .cart-item-info h4 {
   margin: 0;
-  color: #38bdf8;
-  text-shadow: 0 0 8px #38bdf8;
+  color: #1e90ff;
+  text-shadow: 0 0 8px #1e90ff;
   font-size: 1.2rem;
 }
 
@@ -68,7 +68,7 @@
 
 .cart-price {
   font-weight: bold;
-  color: #38bdf8;
+  color: #1e90ff;
   font-size: 1rem;
 }
 
@@ -81,18 +81,18 @@
 }
 
 .quantity-controls button {
-  background: #38bdf8;
+  background: #1e90ff;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 5px;
-  color: #0f172a;
+  color: #0a2540;
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .quantity-controls button:hover {
-  background: #0ea5e9;
+  background: #0b5ed7;
 }
 
 .quantity-controls span {
@@ -125,27 +125,27 @@
   margin-top: 2rem;
   text-align: right;
   font-weight: bold;
-  color: #38bdf8;
-  text-shadow: 0 0 6px #38bdf8;
+  color: #1e90ff;
+  text-shadow: 0 0 6px #1e90ff;
 }
 
 .checkout-btn {
-  background: #38bdf8;
-  color: #0f172a;
+  background: #1e90ff;
+  color: #0a2540;
   padding: 0.7rem 1.5rem;
   border-radius: 6px;
   border: none;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 0 10px #38bdf8;
+  box-shadow: 0 0 10px #1e90ff;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
 }
 
 .checkout-btn:hover {
-  background: #0ea5e9;
+  background: #0b5ed7;
   color: #f0f9ff;
-  box-shadow: 0 0 15px #0ea5e9;
+  box-shadow: 0 0 15px #0b5ed7;
 }
 
 /* ===== Empty Cart ===== */
@@ -155,12 +155,12 @@
 }
 
 .cart-page a {
-  color: #38bdf8;
+  color: #1e90ff;
   text-decoration: underline;
 }
 
 .cart-page a:hover {
-  color: #0ea5e9;
+  color: #0b5ed7;
 }
 
 /* ===== Responsive ===== */

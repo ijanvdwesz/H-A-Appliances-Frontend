@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0f172a;
+  background-color: #0a2540;
   padding: 0.5rem 2rem;
   position: relative;
   z-index: 10;
@@ -96,12 +96,12 @@
 
 .contact-icon {
   font-size: 1.2rem;
-  color: #38bdf8;
+  color: #1e90ff;
   flex-shrink: 0;
 }
 
 .contact-text {
-  color: #38bdf8;
+  color: #1e90ff;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: bold;
@@ -109,21 +109,21 @@
 }
 
 .contact-text:hover {
-  color: #0ea5e9;
-  text-shadow: 0 0 8px #0ea5e9;
+  color: #0b5ed7;
+  text-shadow: 0 0 8px #0b5ed7;
 }
 
 .burger-btn {
   font-size: 2rem;
   background: none;
   border: none;
-  color: #38bdf8;
+  color: #1e90ff;
   cursor: pointer;
   transition: color 0.3s;
 }
 
 .burger-btn:hover {
-  color: #0ea5e9;
+  color: #0b5ed7;
 }
 
 /* Burger menu overlay */
@@ -132,7 +132,7 @@
   top: 100%;
   right: 0;
   background: #1e293b;
-  border: 2px solid #38bdf8;
+  border: 2px solid #1e90ff;
   border-radius: 8px;
   padding: 1rem;
   z-index: 20;
@@ -163,10 +163,10 @@
 }
 
 .about-section h2, .contact-section h2 {
-  color: #38bdf8;
+  color: #1e90ff;
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-shadow: 0 0 8px #38bdf8;
+  text-shadow: 0 0 8px #1e90ff;
 }
 
 .about-section p, .contact-section p {
@@ -178,19 +178,19 @@
 /* Contact Button */
 .contact-form-btn {
   padding: 0.6rem 1.2rem;
-  background-color: #38bdf8;
-  color: #0f172a;
+  background-color: #1e90ff;
+  color: #0a2540;
   border: none;
   border-radius: 9999px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 0 8px #38bdf8;
+  box-shadow: 0 0 8px #1e90ff;
   transition: all 0.3s ease;
 }
 
 .contact-form-btn:hover {
-  background-color: #0ea5e9;
-  box-shadow: 0 0 15px #0ea5e9;
+  background-color: #0b5ed7;
+  box-shadow: 0 0 15px #0b5ed7;
 }
 
 /* ===== Modal ===== */
@@ -225,7 +225,7 @@
   font-size: 1.5rem;
   background: none;
   border: none;
-  color: #38bdf8;
+  color: #1e90ff;
   cursor: pointer;
 }
 
@@ -233,7 +233,7 @@
 .footer {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: #0f172a;
+  background-color: #0a2540;
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
   margin-top: 2rem;
 }

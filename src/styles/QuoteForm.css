@@ -47,7 +47,7 @@
   box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   background-color: #f8fafc;
-  color: #0f172a;
+  color: #0a2540;
 }
 
 .quote-form-container input:focus,
@@ -85,7 +85,7 @@
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
-  color: #0f172a;
+  color: #0a2540;
   font-size: 1rem;
   font-weight: 500;
   background: #f8fafc;
@@ -99,7 +99,7 @@
 
 .checkbox-group label:hover {
   background: #e0f2fe;
-  border-color: #38bdf8;
+  border-color: #1e90ff;
   box-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
 }
 
@@ -138,7 +138,7 @@
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
   text-align: center;
-  color: #0f172a;
+  color: #0a2540;
 }
 
 .quote-form-container h3 {

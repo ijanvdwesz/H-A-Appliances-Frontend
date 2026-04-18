@@ -9,8 +9,8 @@
 .homepage-store-preview h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: #38bdf8;
-  text-shadow: 0 0 8px #38bdf8;
+  color: #1e90ff;
+  text-shadow: 0 0 8px #1e90ff;
 }
 
 /* Grid for preview products */
@@ -27,17 +27,17 @@
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
-  background-color: #38bdf8;
-  color: #0f172a;
+  background-color: #1e90ff;
+  color: #0a2540;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 10px #38bdf8;
+  box-shadow: 0 0 10px #1e90ff;
   transition: all 0.3s ease;
 }
 
 .view-store-button:hover {
-  background-color: #0ea5e9;
+  background-color: #0b5ed7;
   color: #f0f9ff;
-  box-shadow: 0 0 15px #0ea5e9;
+  box-shadow: 0 0 15px #0b5ed7;
 }
