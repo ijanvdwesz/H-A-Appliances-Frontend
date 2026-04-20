@@ -3,9 +3,9 @@ import "../styles/Header.css";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaPhone, FaEnvelope } from "react-icons/fa";
 
-function Header({ categories = [] }) {
+function Header({ categories = [], variant = "store" }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [minPrice, setMinPrice] = useState("");
@@ -37,12 +37,12 @@ function Header({ categories = [] }) {
   return (
     <header className="header">
       <div className="header-top">
-        {/* ✅ Logo + Text with glow wrapper */}
+        {/* Logo */}
         <div className="logo-container" onClick={() => navigate("/")}>
           <div className="logo-glow-wrapper">
             <img
               src="/assets/logo/ACSystems4U-Logo.jpeg"
-              alt="Cold Company Wolf Logo"
+              alt="Logo"
               className="logo"
             />
           </div>
@@ -51,7 +51,7 @@ function Header({ categories = [] }) {
           </div>
         </div>
 
-        {/* 🔍 Search */}
+        {/* Search */}
         <div className="search-container">
           <input
             type="text"
@@ -65,14 +65,36 @@ function Header({ categories = [] }) {
           </button>
         </div>
 
-        {/* 🛒 Cart */}
-        <div className="cart-icon-container" onClick={goToCart}>
-          <FaShoppingCart className="cart-icon" />
-          {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
-        </div>
+        {/* RIGHT SIDE: switch between cart OR contact */}
+        {variant === "store" ? (
+          <div className="cart-icon-container" onClick={goToCart}>
+            <FaShoppingCart className="cart-icon" />
+            {cart.length > 0 && (
+              <span className="cart-count">{cart.length}</span>
+            )}
+          </div>
+        ) : (
+          <div className="header-contact-info">
+            <div className="contact-item">
+              <FaPhone className="contact-icon" />
+              <a href="tel:+19407641751" className="contact-text">
+                +1 (940) 764-1751
+              </a>
+            </div>
+            <div className="contact-item">
+              <FaEnvelope className="contact-icon" />
+              <a
+                href="mailto:Herculesmulder94@gmail.com"
+                className="contact-text"
+              >
+                Herculesmulder94@gmail.com
+              </a>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* 🧊 Filters */}
+      {/* Filters (unchanged) */}
       <div className="filters-container">
         <select
           className="category-dropdown"
@@ -94,6 +116,7 @@ function Header({ categories = [] }) {
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
         />
+
         <input
           type="number"
           placeholder="Max Price"

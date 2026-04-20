@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FaPhone, FaEnvelope } from "react-icons/fa";
 import QuoteForm from "../components/QuoteForm";
 import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 import "../styles/AboutContactPage.css";
 
 function AboutContactPage() {
@@ -10,58 +10,9 @@ function AboutContactPage() {
 
   return (
     <div className="about-contact-page">
-      {/* Header */}
-      <header className="about-header">
-        <div className="header-images">
-          {/* Left: Wolf Logo */}
-          <img
-            src="/assets/logo/Wolf2.png"
-            alt="Logo"
-            className="wolf-logo"
-            onClick={() => window.location.href = "/"}
-          />
 
-          {/* Center: Neon Title */}
-          <div
-            className="neon-title-container"
-            onClick={() => window.location.href = "/"}
-          >
-            <h1 className="neon-title-line neon-title-h1">AC Systems 4U</h1>
-          </div>
-
-          {/* Right: Contact info + burger */}
-          <div className="header-right">
-            <div className="header-contact-info">
-              <div className="contact-item">
-                <FaPhone className="contact-icon" />
-                <a href="tel:+19407641751" className="contact-text">
-                  +1 (940) 764-1751
-                </a>
-              </div>
-              <div className="contact-item">
-                <FaEnvelope className="contact-icon" />
-                <a href="mailto:Herculesmulder94@gmail.com" className="contact-text">
-                  Herculesmulder94@gmail.com
-                </a>
-              </div>
-              
-            </div>
-            <button
-              className="burger-btn"
-              onClick={() => setBurgerOpen(!burgerOpen)}
-            >
-              ☰
-            </button>
-          </div>
-        </div>
-
-        {/* Navbar overlay */}
-        {burgerOpen && (
-          <div className="burger-menu-overlay">
-            <Navbar onLinkClick={() => setBurgerOpen(false)} />
-          </div>
-        )}
-      </header>
+      {/* ✅ REPLACED HEADER */}
+      <Header variant="contact" />
 
       {/* About Section */}
       <section className="about-section">
@@ -79,7 +30,9 @@ function AboutContactPage() {
         <h2>Contact Us</h2>
         <p>
           <strong>Email:</strong>{" "}
-          <a href="mailto:Herculesmulder94@gmail.com">Herculesmulder94@gmail.com</a>
+          <a href="mailto:Herculesmulder94@gmail.com">
+            Herculesmulder94@gmail.com
+          </a>
         </p>
         <p>
           <strong>Phone:</strong>{" "}
@@ -88,6 +41,7 @@ function AboutContactPage() {
         <p>
           <strong>Address:</strong> 123 Cold Street, Pretoria, South Africa
         </p>
+
         <button
           className="contact-form-btn"
           onClick={() => setShowForm(true)}
@@ -96,7 +50,7 @@ function AboutContactPage() {
         </button>
       </section>
 
-      {/* Modal Form */}
+      {/* Modal */}
       {showForm && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -116,9 +70,13 @@ function AboutContactPage() {
         <p>© {new Date().getFullYear()} H&A Appliances. All rights reserved.</p>
         <p>
           <strong>Email:</strong>{" "}
-          <a href="mailto:info@H&Aappliances@gmail.com">info@H&Aappliances@gmail.com</a>{" "}
+          <a href="mailto:info@H&Aappliances@gmail.com">
+            info@H&Aappliances@gmail.com
+          </a>{" "}
           /{" "}
-          <a href="mailto:Herculesmulder94@gmail.com">Herculesmulder94@gmail.com</a>{" "}
+          <a href="mailto:Herculesmulder94@gmail.com">
+            Herculesmulder94@gmail.com
+          </a>{" "}
           | <strong>Phone:</strong>{" "}
           <a href="tel:+27123456789">+27 12 345 6789</a>
         </p>
