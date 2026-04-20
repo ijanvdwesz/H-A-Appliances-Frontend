@@ -152,7 +152,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 6px #4DB8FF;
-  height: ;
 }
 
 .search-button:hover {
@@ -186,7 +185,7 @@
   background: #1E90FF;
   color: #d0ecf7;
   box-shadow: 0 0 5px #4DB8FF inset;
-  box-sizing: border-box; /* ✅ added */
+  box-sizing: border-box;
 }
 
 .filters-container .search-button {
