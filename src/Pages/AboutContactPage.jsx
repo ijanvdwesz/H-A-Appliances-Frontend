@@ -74,8 +74,8 @@ function AboutContactPage() {
             info@H&Aappliances@gmail.com
           </a>{" "}
           /{" "}
-          <a href="mailto:Herculesmulder94@gmail.com">
-            Herculesmulder94@gmail.com
+          <a href="mailto:hercules@acsystems4u.com">
+            Hercules@acsystems4u.com
           </a>{" "}
           | <strong>Phone:</strong>{" "}
           <a href="tel:+27123456789">+27 12 345 6789</a>
