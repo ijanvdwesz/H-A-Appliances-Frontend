@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import QuoteForm from "../components/QuoteForm";
-import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import "../styles/AboutContactPage.css";
 
 function AboutContactPage() {
   const [showForm, setShowForm] = useState(false);
-  const [burgerOpen, setBurgerOpen] = useState(false);
 
   return (
     <div className="about-contact-page">
 
-      {/* ✅ REPLACED HEADER */}
+      {/* NEW SHARED HEADER */}
       <Header variant="contact" />
 
       {/* About Section */}
@@ -28,16 +26,19 @@ function AboutContactPage() {
       {/* Contact Section */}
       <section className="contact-section">
         <h2>Contact Us</h2>
+
         <p>
           <strong>Email:</strong>{" "}
           <a href="mailto:Herculesmulder94@gmail.com">
             Herculesmulder94@gmail.com
           </a>
         </p>
+
         <p>
           <strong>Phone:</strong>{" "}
           <a href="tel:+19407641751">+1 (940) 764-1751</a>
         </p>
+
         <p>
           <strong>Address:</strong> 123 Cold Street, Pretoria, South Africa
         </p>
@@ -50,7 +51,7 @@ function AboutContactPage() {
         </button>
       </section>
 
-      {/* Modal */}
+      {/* Modal Form */}
       {showForm && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -74,8 +75,8 @@ function AboutContactPage() {
             info@H&Aappliances@gmail.com
           </a>{" "}
           /{" "}
-          <a href="mailto:hercules@acsystems4u.com">
-            Hercules@acsystems4u.com
+          <a href="mailto:Herculesmulder94@gmail.com">
+            Herculesmulder94@gmail.com
           </a>{" "}
           | <strong>Phone:</strong>{" "}
           <a href="tel:+27123456789">+27 12 345 6789</a>
