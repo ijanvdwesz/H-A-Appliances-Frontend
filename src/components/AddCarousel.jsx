@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/AdCarousel.css";
 
-const services = ["Aircon", "Freezer", "Coldroom", "Water-Heater"];
-
 function AdCarousel() {
   const carouselRef = useRef(null);
 
@@ -11,6 +9,7 @@ function AdCarousel() {
     const scroll = () => {
       if (carouselRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+
         if (scrollLeft + clientWidth >= scrollWidth) {
           carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
@@ -18,18 +17,17 @@ function AdCarousel() {
         }
       }
     };
+
     const interval = setInterval(scroll, 3000);
     return () => clearInterval(interval);
   }, []);
 
-  // Generate ads: cycle through 1–7
+  // ✅ Snowman comic images
   const ads = [];
-  for (let i = 1; i <= 7; i++) {
-    services.forEach((service) => {
-      ads.push({
-        src: `/assets/services/${service}${i}.jpeg`,
-        alt: `${service} ${i}`,
-      });
+  for (let i = 1; i <= 5; i++) {
+    ads.push({
+      src: `/assets/ad-carousel/Snowman${i}.png`,
+      alt: `Snowman Scene ${i}`,
     });
   }
 
