@@ -22,7 +22,7 @@ function AdCarousel() {
     const scroll = () => {
       if (!carouselRef.current || isPaused) return;
 
-      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      const { scrollLeft, scrollWidth } = carouselRef.current;
 
       // Reset seamlessly when halfway (because duplicated)
       if (scrollLeft >= scrollWidth / 2) {
@@ -32,15 +32,15 @@ function AdCarousel() {
       }
     };
 
-    const interval = setInterval(scroll, 4000); // ✅ 4 seconds
+    const interval = setInterval(scroll, 4000); // 4 seconds
     return () => clearInterval(interval);
   }, [isPaused]);
 
   return (
     <div
       className="ad-carousel"
-      onMouseEnter={() => setIsPaused(true)}   // ✅ pause on hover
-      onMouseLeave={() => setIsPaused(false)}  // ✅ resume
+      onMouseEnter={() => setIsPaused(true)}   // pause on hover
+      onMouseLeave={() => setIsPaused(false)}  // resume
     >
       <div ref={carouselRef} className="ad-track">
         {ads.map((ad, i) => (
