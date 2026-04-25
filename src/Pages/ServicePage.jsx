@@ -6,7 +6,7 @@ import QuoteModal from "./QuoteModal";
 const services = [
   {
     title: "Air Conditioning",
-    image: "Aircon-Snowman1.png",
+    image: "Snowman2.png",
     desc: "Installation, repair & maintenance of AC systems.",
     quoteOptions: [
       { label: "Install New AC", value: "ac_install" },

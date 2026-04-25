@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import QuoteModal from "../Pages/QuoteModal";
 import "../styles/Services.css";
 
 const services = [
   {
     title: "Air Conditioning",
-    basePath: "/assets/services/Aircon",
+    image: "Snowman1.png",
     desc: "Installation, repair & maintenance of AC systems.",
     quoteOptions: [
       { label: "Install New AC", value: "ac_install" },
@@ -14,7 +14,7 @@ const services = [
   },
   {
     title: "Cold Rooms",
-    basePath: "/assets/services/Coldroom",
+    image: "ColdRoom-Snowman2.png",
     desc: "Custom cold & freezer rooms from small to industrial scale.",
     quoteOptions: [
       { label: "Build / Install Custom Cold Room", value: "coldroom_custom" },
@@ -22,8 +22,17 @@ const services = [
     ],
   },
   {
-    title: "Freezers / Fridges",
-    basePath: "/assets/services/Freezer",
+    title: "Mobile Units",
+    image: "MobileUnits-Snowman1.png",
+    desc: "Refrigerated trucks & mobile cold rooms for transport and events.",
+    quoteOptions: [
+      { label: "Install Mobile Unit", value: "mobile_install" },
+      { label: "Service / Repair Unit", value: "mobile_service" },
+    ],
+  },
+  {
+    title: "Refridgeration",
+    image: "Refridgeration-Snowman1.png",
     desc: "High efficiency freezers, fridges & regassing.",
     quoteOptions: [
       { label: "Freezer / Fridge Service", value: "freezer_service" },
@@ -31,7 +40,7 @@ const services = [
   },
   {
     title: "Water Heaters",
-    basePath: "/assets/services/Water-Heater",
+    image: "WaterHeater-Snowman1.png",
     desc: "Installation, repair & maintenance of water heating systems.",
     quoteOptions: [
       { label: "Water Heater Service", value: "waterheater_service" },
@@ -39,21 +48,7 @@ const services = [
   },
 ];
 
-// Utility hook for cycling images
-function useImageCycle(total = 7, interval = 2500) {
-  const [index, setIndex] = useState(1);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev >= total ? 1 : prev + 1));
-    }, interval);
-    return () => clearInterval(timer);
-  }, [total, interval]);
-  return index;
-}
-
 function Services({ fullPage = false }) {
-  const currentImageIndex = useImageCycle(7, 2500);
-
   // ✅ Modal control
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
@@ -71,17 +66,18 @@ function Services({ fullPage = false }) {
         {services.map((s, i) => (
           <div key={i} className="service-card">
             <img
-              src={`${s.basePath}${currentImageIndex}.jpeg`}
+              src={`/assets/services/${s.image}`}
               alt={s.title}
               className="service-img"
             />
+
             <h3 className="service-heading">{s.title}</h3>
             <p className="service-desc">{s.desc}</p>
 
             {s.quoteOptions.map((opt, j) => (
               <button
                 key={j}
-                onClick={() => handleQuote(opt.value)} // ✅ open modal
+                onClick={() => handleQuote(opt.value)}
                 className="quote-btn"
               >
                 {opt.label}
