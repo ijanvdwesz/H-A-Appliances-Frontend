@@ -33,7 +33,7 @@ const services = [
   },
   {
     title: "Freezers / Fridges",
-    image: "RefrigeratorSnowman1.png",
+    image: "Refridgerator-Snowman1.png",
     desc: "High efficiency freezers, fridges & regassing.",
     quoteOptions: [
       { label: "Freezer / Fridge Service", value: "freezer_service" },

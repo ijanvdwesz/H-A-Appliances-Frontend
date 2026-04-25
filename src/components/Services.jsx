@@ -5,7 +5,7 @@ import "../styles/Services.css";
 const services = [
   {
     title: "Air Conditioning",
-    image: "Snowman1.png",
+    image: "Snowman2.png",
     desc: "Installation, repair & maintenance of AC systems.",
     quoteOptions: [
       { label: "Install New AC", value: "ac_install" },
@@ -14,7 +14,7 @@ const services = [
   },
   {
     title: "Cold Rooms",
-    image: "ColdRoom-Snowman2.png",
+    image: "ColdRoom-Snowman1.png",
     desc: "Custom cold & freezer rooms from small to industrial scale.",
     quoteOptions: [
       { label: "Build / Install Custom Cold Room", value: "coldroom_custom" },
