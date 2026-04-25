@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import "../styles/Services.css";
 import QuoteModal from "./QuoteModal";
@@ -6,7 +6,7 @@ import QuoteModal from "./QuoteModal";
 const services = [
   {
     title: "Air Conditioning",
-    imagePrefix: "Aircon-Snowman",
+    image: "Aircon-Snowman1.png",
     desc: "Installation, repair & maintenance of AC systems.",
     quoteOptions: [
       { label: "Install New AC", value: "ac_install" },
@@ -15,7 +15,7 @@ const services = [
   },
   {
     title: "Cold Rooms",
-    imagePrefix: "Coldroom-Snowman",
+    image: "ColdRoom-Snowman1.png",
     desc: "Custom cold & freezer rooms from small to industrial scale.",
     quoteOptions: [
       { label: "Build / Install Custom Cold Room", value: "coldroom_custom" },
@@ -24,7 +24,7 @@ const services = [
   },
   {
     title: "Mobile Units",
-    imagePrefix: "MobileUnits-Snowman",
+    image: "MobileUnits-Snowman1.png",
     desc: "Refrigerated trucks & mobile cold rooms for transport and events.",
     quoteOptions: [
       { label: "Install Mobile Unit", value: "mobile_install" },
@@ -33,7 +33,7 @@ const services = [
   },
   {
     title: "Freezers / Fridges",
-    imagePrefix: "Freezer-Snowman",
+    image: "RefrigeratorSnowman1.png",
     desc: "High efficiency freezers, fridges & regassing.",
     quoteOptions: [
       { label: "Freezer / Fridge Service", value: "freezer_service" },
@@ -41,7 +41,7 @@ const services = [
   },
   {
     title: "Water Heaters",
-    imagePrefix: "Water-Heater-Snowman",
+    image: "WaterHeater-Snowman1.png",
     desc: "Installation, repair & maintenance of water heating systems.",
     quoteOptions: [
       { label: "Water Heater Service", value: "waterheater_service" },
@@ -49,23 +49,7 @@ const services = [
   },
 ];
 
-// Utility: cycle image index 1 → 7
-function useImageCycle(total = 7, interval = 3000) {
-  const [index, setIndex] = useState(1);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev >= total ? 1 : prev + 1));
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [total, interval]);
-
-  return index;
-}
-
 function ServicesPage({ fullPage = true }) {
-  const currentImageIndex = useImageCycle(7, 2500);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
@@ -85,7 +69,7 @@ function ServicesPage({ fullPage = true }) {
           {services.map((s, i) => (
             <div key={i} className="service-card">
               <img
-                src={`/assets/services/${s.imagePrefix}${currentImageIndex}.jpeg`}
+                src={`/assets/services/${s.image}`}
                 alt={s.title}
                 className="service-img"
               />
