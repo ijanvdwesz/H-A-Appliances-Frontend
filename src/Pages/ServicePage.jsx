@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header"; // ✅ Add header
+import Header from "../components/Header";
 import "../styles/Services.css";
 import QuoteModal from "./QuoteModal";
 
 const services = [
   {
     title: "Air Conditioning",
-    basePath: "/assets/services/Aircon",
+    imagePrefix: "Aircon-Snowman",
     desc: "Installation, repair & maintenance of AC systems.",
     quoteOptions: [
       { label: "Install New AC", value: "ac_install" },
@@ -15,7 +15,7 @@ const services = [
   },
   {
     title: "Cold Rooms",
-    basePath: "/assets/services/Coldroom",
+    imagePrefix: "Coldroom-Snowman",
     desc: "Custom cold & freezer rooms from small to industrial scale.",
     quoteOptions: [
       { label: "Build / Install Custom Cold Room", value: "coldroom_custom" },
@@ -23,8 +23,17 @@ const services = [
     ],
   },
   {
+    title: "Mobile Units",
+    imagePrefix: "MobileUnits-Snowman",
+    desc: "Refrigerated trucks & mobile cold rooms for transport and events.",
+    quoteOptions: [
+      { label: "Install Mobile Unit", value: "mobile_install" },
+      { label: "Service / Repair Unit", value: "mobile_service" },
+    ],
+  },
+  {
     title: "Freezers / Fridges",
-    basePath: "/assets/services/Freezer",
+    imagePrefix: "Freezer-Snowman",
     desc: "High efficiency freezers, fridges & regassing.",
     quoteOptions: [
       { label: "Freezer / Fridge Service", value: "freezer_service" },
@@ -32,7 +41,7 @@ const services = [
   },
   {
     title: "Water Heaters",
-    basePath: "/assets/services/Water-Heater",
+    imagePrefix: "Water-Heater-Snowman",
     desc: "Installation, repair & maintenance of water heating systems.",
     quoteOptions: [
       { label: "Water Heater Service", value: "waterheater_service" },
@@ -43,12 +52,15 @@ const services = [
 // Utility: cycle image index 1 → 7
 function useImageCycle(total = 7, interval = 3000) {
   const [index, setIndex] = useState(1);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev >= total ? 1 : prev + 1));
     }, interval);
+
     return () => clearInterval(timer);
   }, [total, interval]);
+
   return index;
 }
 
@@ -64,7 +76,6 @@ function ServicesPage({ fullPage = true }) {
 
   return (
     <>
-      {/* ✅ Header on top */}
       <Header />
 
       <section id="services" className="services-section">
@@ -74,10 +85,11 @@ function ServicesPage({ fullPage = true }) {
           {services.map((s, i) => (
             <div key={i} className="service-card">
               <img
-                src={`${s.basePath}${currentImageIndex}.jpeg`}
+                src={`/assets/services/${s.imagePrefix}${currentImageIndex}.jpeg`}
                 alt={s.title}
                 className="service-img"
               />
+
               <h3 className="service-heading">{s.title}</h3>
               <p className="service-desc">{s.desc}</p>
 
@@ -94,7 +106,6 @@ function ServicesPage({ fullPage = true }) {
           ))}
         </div>
 
-        {/* Modal */}
         <QuoteModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
