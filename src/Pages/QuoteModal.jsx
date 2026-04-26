@@ -6,7 +6,7 @@ function QuoteModal({ isOpen, onClose, selectedService }) {
   if (!isOpen) return null;
 
   const handleSuccess = () => {
-    // ✅ Close modal on successful submission
+    // ✅ Close modal after successful submission
     onClose();
   };
 
@@ -16,10 +16,20 @@ function QuoteModal({ isOpen, onClose, selectedService }) {
         className="quote-modal-content"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="quote-modal-close" onClick={onClose}>
+        {/* Close Button */}
+        <button
+          className="quote-modal-close"
+          onClick={onClose}
+          aria-label="Close"
+        >
           ×
         </button>
-        <QuoteForm prefillService={selectedService} onSuccess={handleSuccess} />
+
+        {/* Form */}
+        <QuoteForm
+          prefillService={selectedService || ""}
+          onSuccess={handleSuccess}
+        />
       </div>
     </div>
   );
