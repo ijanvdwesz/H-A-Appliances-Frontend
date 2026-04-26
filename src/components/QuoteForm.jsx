@@ -3,6 +3,18 @@ import axios from "axios";
 import "../styles/QuoteForm.css";
 import BASE_URL from "../config";
 
+// ✅ FIX: move outside component (prevents ESLint error)
+const serviceMap = {
+  ac_install: "Aircon Installation",
+  ac_service: "Maintenance",
+  coldroom_custom: "Cold Room",
+  coldroom_maintenance: "Maintenance",
+  mobile_install: "Mobile Unit",
+  mobile_service: "Mobile Unit",
+  freezer_service: "Maintenance",
+  waterheater_service: "Maintenance",
+};
+
 function QuoteForm({ prefillService, onSuccess }) {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -24,18 +36,7 @@ function QuoteForm({ prefillService, onSuccess }) {
     location: "",
   });
 
-  // 🔥 MAP incoming service values → form labels
-  const serviceMap = {
-    ac_install: "Aircon Installation",
-    ac_service: "Maintenance",
-    coldroom_custom: "Cold Room",
-    coldroom_maintenance: "Maintenance",
-    mobile_install: "Mobile Unit",
-    mobile_service: "Mobile Unit",
-    freezer_service: "Maintenance",
-    waterheater_service: "Maintenance",
-  };
-
+  // ✅ Prefill logic (now valid)
   useEffect(() => {
     if (prefillService && serviceMap[prefillService]) {
       setForm((prev) => ({
