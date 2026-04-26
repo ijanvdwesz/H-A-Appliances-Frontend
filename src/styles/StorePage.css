@@ -51,34 +51,56 @@
   text-shadow: 0 0 6px #4DB8FF;
 }
 
-/* Responsive grid */
+/* ============================
+   TABLET
+   ============================ */
 @media (max-width: 1024px) {
   .product-grid {
-    grid-template-columns: repeat(3, 1fr); /* tablet */
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ✅ FIX: price slightly smaller */
+  .product-card .product-price {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    word-break: break-word;
   }
 }
 
+/* ============================
+   MOBILE
+   ============================ */
 @media (max-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* mobile */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .pagination {
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  /* ✅ FIX: price smaller */
+  .product-card .product-price {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    word-break: break-word;
+  }
 }
 
-/* Small mobile adjustments: text and buttons smaller */
+/* ============================
+   SMALL MOBILE
+   ============================ */
 @media (max-width: 480px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
   }
 
   /* Product card text/buttons scale down */
   .product-card {
     font-size: 0.85rem;
+    overflow: hidden; /* ✅ prevents spill */
   }
 
   .product-card .product-title {
@@ -87,6 +109,13 @@
 
   .product-card .product-desc {
     font-size: 0.8rem;
+  }
+
+  /* ✅ FINAL FIX: price smallest here */
+  .product-card .product-price {
+    font-size: 0.85rem;
+    line-height: 1.2;
+    word-break: break-word;
   }
 
   .product-card .add-cart-btn,
