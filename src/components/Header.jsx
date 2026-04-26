@@ -84,17 +84,17 @@ function Header({ categories = [], variant = "store" }) {
           <div className="header-contact-info">
             <div className="contact-item">
               <FaPhone className="contact-icon" />
-              <a href="tel:+19407641751" className="contact-text">
-                +1 (940) 764-1751
+              <a href="tel:+27638743980" className="contact-text">
+                +27638743980
               </a>
             </div>
             <div className="contact-item">
               <FaEnvelope className="contact-icon" />
               <a
-                href="mailto:Herculesmulder94@gmail.com"
+                href="mailto:hercules@acsystems4u.com"
                 className="contact-text"
               >
-                Herculesmulder94@gmail.com
+                Hercules@acsystems4u.com
               </a>
             </div>
           </div>
