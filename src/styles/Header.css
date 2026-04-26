@@ -232,32 +232,47 @@
 
 @media (max-width: 768px) {
 
-  /* STACK SEARCH BAR + BUTTON */
+  /* STACK SEARCH AREA */
   .search-container {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    width: 100%;
   }
 
+  /* SEARCH BAR FULL WIDTH */
   .search-bar {
     width: 100%;
     max-width: 100%;
   }
 
-  .search-button {
+  /* BUTTON + CART ROW */
+  .search-container-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     width: 100%;
-    margin-left: 0;
   }
 
-  /* ADD SPACE BETWEEN SEARCH + FILTERS */
+  .search-button {
+    flex: 1;            /* fills space nicely */
+    margin-left: 0;
+    width: auto;
+  }
+
+  .cart-icon-container {
+    flex-shrink: 0;
+  }
+
+  /* FILTERS */
   .filters-container {
-    margin-top: 1rem;   /* ✅ THIS is your requested spacing fix */
-    margin-left: 0;     /* center it properly */
+    margin-top: 1rem;
+    margin-left: 0;
     margin-right: 0;
     width: 100%;
     padding: 0 0.5rem;
 
-    /* KEEP ORIGINAL GRID BEHAVIOUR (2x2 etc stays intact) */
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     justify-content: center;
   }
@@ -268,4 +283,9 @@
     width: 100%;
     max-width: 100%;
   }
+  @media (max-width: 480px) {
+  .filters-container {
+    margin-left: -4px;
+  }
+}
 }
