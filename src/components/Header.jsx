@@ -37,7 +37,8 @@ function Header({ categories = [], variant = "store" }) {
   return (
     <header className="header">
       <div className="header-top">
-        {/* Logo */}
+
+        {/* LOGO */}
         <div className="logo-container" onClick={() => navigate("/")}>
           <div className="logo-glow-wrapper">
             <img
@@ -46,13 +47,16 @@ function Header({ categories = [], variant = "store" }) {
               className="logo"
             />
           </div>
-          <div className="title-text-glow">
+
+          {/* TITLE (hidden on mobile via CSS) */}
+          <div className="title-text-glow mobile-hide-title">
             <h1 className="title-text">AC Systems 4U</h1>
           </div>
         </div>
 
-        {/* SEARCH AREA (UPDATED STRUCTURE) */}
+        {/* SEARCH AREA */}
         <div className="search-container">
+
           {/* SEARCH BAR */}
           <input
             type="text"
@@ -62,7 +66,7 @@ function Header({ categories = [], variant = "store" }) {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
 
-          {/* BUTTON + CART GROUP */}
+          {/* BUTTON + CART ROW */}
           <div className="search-container-bottom">
             <button onClick={handleSearch} className="search-button">
               Search
@@ -79,7 +83,7 @@ function Header({ categories = [], variant = "store" }) {
           </div>
         </div>
 
-        {/* RIGHT SIDE (ONLY FOR NON-STORE PAGES) */}
+        {/* CONTACT (non-store pages) */}
         {variant !== "store" && (
           <div className="header-contact-info">
             <div className="contact-item">
@@ -99,6 +103,7 @@ function Header({ categories = [], variant = "store" }) {
             </div>
           </div>
         )}
+
       </div>
 
       {/* FILTERS */}
