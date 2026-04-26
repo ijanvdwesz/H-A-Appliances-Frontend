@@ -230,9 +230,6 @@
   padding: 2px 6px;
 }
 
-/* ============================
-   MOBILE + TABLET FIXES
-   ============================ */
 @media (max-width: 768px) {
 
   /* STACK SEARCH BAR + BUTTON */
@@ -252,19 +249,23 @@
     margin-left: 0;
   }
 
-  /* CENTER FILTERS PROPERLY */
+  /* ADD SPACE BETWEEN SEARCH + FILTERS */
   .filters-container {
+    margin-top: 1rem;   /* ✅ THIS is your requested spacing fix */
+    margin-left: 0;     /* center it properly */
+    margin-right: 0;
     width: 100%;
-    margin: 0;              /* remove side spacing */
-    padding: 0 0.5rem;     /* small safe padding */
-    grid-template-columns: 1fr; /* stack cleanly */
-    justify-items: center;
+    padding: 0 0.5rem;
+
+    /* KEEP ORIGINAL GRID BEHAVIOUR (2x2 etc stays intact) */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    justify-content: center;
   }
 
   .category-dropdown,
   .price-input,
   .filters-container .search-button {
     width: 100%;
-    max-width: 400px; /* keeps it neat instead of full stretch */
+    max-width: 100%;
   }
 }
