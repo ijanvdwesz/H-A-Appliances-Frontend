@@ -51,8 +51,9 @@ function Header({ categories = [], variant = "store" }) {
           </div>
         </div>
 
-        {/* Search */}
+        {/* SEARCH AREA (UPDATED STRUCTURE) */}
         <div className="search-container">
+          {/* SEARCH BAR */}
           <input
             type="text"
             placeholder="Search products..."
@@ -60,20 +61,26 @@ function Header({ categories = [], variant = "store" }) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button onClick={handleSearch} className="search-button">
-            Search
-          </button>
-        </div>
 
-        {/* RIGHT SIDE: switch between cart OR contact */}
-        {variant === "store" ? (
-          <div className="cart-icon-container" onClick={goToCart}>
-            <FaShoppingCart className="cart-icon" />
-            {cart.length > 0 && (
-              <span className="cart-count">{cart.length}</span>
+          {/* BUTTON + CART GROUP */}
+          <div className="search-container-bottom">
+            <button onClick={handleSearch} className="search-button">
+              Search
+            </button>
+
+            {variant === "store" && (
+              <div className="cart-icon-container" onClick={goToCart}>
+                <FaShoppingCart className="cart-icon" />
+                {cart.length > 0 && (
+                  <span className="cart-count">{cart.length}</span>
+                )}
+              </div>
             )}
           </div>
-        ) : (
+        </div>
+
+        {/* RIGHT SIDE (ONLY FOR NON-STORE PAGES) */}
+        {variant !== "store" && (
           <div className="header-contact-info">
             <div className="contact-item">
               <FaPhone className="contact-icon" />
@@ -94,7 +101,7 @@ function Header({ categories = [], variant = "store" }) {
         )}
       </div>
 
-      {/* Filters (unchanged) */}
+      {/* FILTERS */}
       <div className="filters-container">
         <select
           className="category-dropdown"

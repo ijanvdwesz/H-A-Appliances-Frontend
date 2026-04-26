@@ -229,34 +229,44 @@
   border-radius: 50%;
   padding: 2px 6px;
 }
-
 @media (max-width: 768px) {
 
-  .header-top {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.6rem;
-  }
+  /* STACK SEARCH AREA */
   .search-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
     width: 100%;
     gap: 0.5rem;
   }
+
+  /* SEARCH BAR FULL WIDTH */
   .search-bar {
-    flex-basis: 100%;
     width: 100%;
     max-width: 100%;
   }
+
+  /* BUTTON + CART SAME ROW */
+  .search-container-bottom {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  /* BUTTON TAKES SPACE */
   .search-button {
     flex: 1;
-    width: auto;
     margin-left: 0;
+    width: auto;
   }
+
+  /* CART STAYS NEXT TO BUTTON */
   .cart-icon-container {
     display: flex;
     align-items: center;
-    margin-left: 0.5rem;
+    justify-content: center;
+    min-width: 40px;
   }
 
   /* FILTERS */
@@ -266,8 +276,8 @@
     margin-right: 0;
     width: 100%;
     padding: 0 0.5rem;
+
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    justify-content: center;
   }
 
   .category-dropdown,
@@ -278,8 +288,9 @@
   }
 }
 
+/* EXTRA SMALL DEVICES (320px tweak) */
 @media (max-width: 480px) {
   .filters-container {
-    margin-left: -4px;
+    margin-left: -4px; /* slight left shift like you wanted */
   }
 }
