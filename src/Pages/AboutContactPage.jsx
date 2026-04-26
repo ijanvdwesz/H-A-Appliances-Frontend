@@ -16,7 +16,7 @@ function AboutContactPage() {
       <section className="about-section">
         <h2>About US</h2>
         <p>
-          H&A is your trusted partner for refrigeration, cold rooms,
+          ACSystems4U is your trusted partner for refrigeration, cold rooms,
           aircon and water heater installations. Our Industry Proffesionals provide high-quality
           products, expert advice, and outstanding service to keep your
           equipment running smoothly.
@@ -36,7 +36,7 @@ function AboutContactPage() {
 
         <p>
           <strong>Phone:</strong>{" "}
-          <a href="tel:+19407641751">+1 (940) 764-1751</a>
+          <a href="tel:+27638743980">+27 638 743 980</a>
         </p>
 
         <p>
@@ -68,11 +68,11 @@ function AboutContactPage() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>© {new Date().getFullYear()} H&A Appliances. All rights reserved.</p>
+        <p>© {new Date().getFullYear()}ACSystems4U. All rights reserved.</p>
         <p>
           <strong>Email:</strong>{" "}
-          <a href="mailto:info@H&Aappliances@gmail.com">
-            info@H&Aappliances@gmail.com
+          <a href="mailto:acsystemsforyou@gmail.com">
+            acsystemsforyou@gmail.com
           </a>{" "}
           /{" "}
           <a href="mailto:hercules@acsystems4u.com">
