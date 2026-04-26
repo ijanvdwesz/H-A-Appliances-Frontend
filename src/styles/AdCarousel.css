@@ -2,8 +2,7 @@
   width: 100%;
   overflow: hidden;
   padding: 1rem 0;
- /* background: linear-gradient(to right, #e6f7ff, #ffffff);*/
-  background:#4DB8FF;
+  background: #4DB8FF;
   border-top: 2px solid #bae6fd;
   border-bottom: 2px solid #bae6fd;
 }
@@ -16,8 +15,9 @@
   padding: 0 1rem;
 }
 
+/* DESKTOP (default = 3 items) */
 .ad-item {
-  flex: 0 0 calc(33.333% - 1rem); /* 3 per view */
+  flex: 0 0 calc(33.333% - 1rem);
   max-width: calc(33.333% - 1rem);
   border-radius: 12px;
   overflow: hidden;
@@ -36,4 +36,20 @@
   height: 180px;
   object-fit: cover;
   display: block;
+}
+
+/* 📱 TABLET → 2 ITEMS */
+@media (max-width: 1024px) {
+  .ad-item {
+    flex: 0 0 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
+
+/* 📱 MOBILE → 1.5 ITEMS */
+@media (max-width: 600px) {
+  .ad-item {
+    flex: 0 0 calc(66.666% - 1rem); /* shows 1.5 items */
+    max-width: calc(66.666% - 1rem);
+  }
 }
