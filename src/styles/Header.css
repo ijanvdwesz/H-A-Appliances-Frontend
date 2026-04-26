@@ -231,50 +231,40 @@
 }
 
 /* ============================
-   RESPONSIVE
+   MOBILE + TABLET FIXES
    ============================ */
 @media (max-width: 768px) {
-  .header-top {
+
+  /* STACK SEARCH BAR + BUTTON */
+  .search-container {
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
   }
 
-  .logo-glow-wrapper .logo {
-    height: 60px;
-  }
-
-  .search-container,
-  .filters-container {
-    width: 100%;
-    padding: 0 0.5rem;
-  }
-
-  .search-bar,
-  .search-button,
-  .category-dropdown,
-  .price-input {
+  .search-bar {
     width: 100%;
     max-width: 100%;
-    font-size: 0.85rem;
-    padding: 0.4rem 0.5rem;
   }
 
   .search-button {
+    width: 100%;
     margin-left: 0;
   }
-}
 
-@media (max-width: 480px) {
-  .logo-glow-wrapper .logo {
-    height: 50px;
+  /* CENTER FILTERS PROPERLY */
+  .filters-container {
+    width: 100%;
+    margin: 0;              /* remove side spacing */
+    padding: 0 0.5rem;     /* small safe padding */
+    grid-template-columns: 1fr; /* stack cleanly */
+    justify-items: center;
   }
 
-  .search-bar,
-  .search-button,
   .category-dropdown,
-  .price-input {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.4rem;
+  .price-input,
+  .filters-container .search-button {
+    width: 100%;
+    max-width: 400px; /* keeps it neat instead of full stretch */
   }
 }
